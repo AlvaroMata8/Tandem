@@ -51,10 +51,12 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
-require('./passport')(app)
+require('./passport')(app);
+
+const Rent = require('./models/Rent');
 
 app.use('/api/auth', auth);
-
+app.use('/api/rent/', generateCrud(Rent));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

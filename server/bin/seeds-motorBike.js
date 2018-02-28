@@ -36,7 +36,7 @@ MotorBike.collection.drop();
 
 MotorBike.create(motorBikes)
 .then(newMotorbike => {
-  User.find().limit(1).then(user=>{
+  User.find().then(user=>{
     console.log(newMotorbike[0]._id )
     User.updateOne({_id: user[0]._id},{ $push: { myBikes: newMotorbike[0]._id } })
     .then(updatedUser=>console.log(updatedUser))

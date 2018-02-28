@@ -15,7 +15,7 @@ const MotorBikeSchema = new Schema(
     },
     horsePower: Number,
     propietorId:{
-        type:[Schema.Types.ObjectId],
+        type:Schema.Types.ObjectId,
         ref:'User'
     },
     rents:[{

@@ -29,7 +29,7 @@ const rentSchema = new Schema(
         date: Date
     },
     use:String,
-    motorBikeImg:String
+    motorBikeImg:[String]
  
   },
   {

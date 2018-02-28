@@ -50,8 +50,8 @@ const users= [
 
 User.collection.drop();
 
-User.create(users, (err, user) => {
-  if (err) {throw err;}
-  
-  console.log(user);
-});
+User.create(users)
+  .then(users=>{
+    console.log('createdUsers!');
+    mongoose.connection.close();
+  })
