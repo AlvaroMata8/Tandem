@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 const {dbURL} = require('./config');
 const cors = require('cors');
 const auth = require('./routes/auth');
-const generatorCrud = require('./routes/crud')
 
 const app = express();
 
@@ -53,10 +52,10 @@ app.use(session({
 
 require('./passport')(app);
 
-const Rent = require('./models/Rent');
-
+const user = require('./routes/api/user');
+app.use('/', user)
 app.use('/api/auth', auth);
-app.use('/api/rent/', generateCrud(Rent));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
