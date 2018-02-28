@@ -4,10 +4,11 @@ const router     = express.Router();
 const User = require('../../models/User');
 const _ = require ('lodash');
 
+//Get All users
 router.get('/', function (req, res, next) {
     debug(`Retrieving all`);
     User.find({...req.query})
-      .then(list => res.status(200).json(list))
+      .then(allUsers => res.status(200).json(allUsers))
       .catch(e => res.status(500).json(e))
   });
 
@@ -15,12 +16,12 @@ router.get('/', function (req, res, next) {
   router.get('/:id', function (req, res, next) {
     debug(`Retrieving id: ${req.params.id}`)
     User.findById(req.params.id)
-      .then(list => res.status(200).json(list))
+      .then(oneUser => res.status(200).json(oneUser))
       .catch(e => res.status(500).json(e))
   });
 
   /* C => CREATE */
-  router.post('/', function (req, res, next) {
+  router.post('/newUser', function (req, res, next) {
 
     // Get only the properties we need
     const model_properties = _.remove(
