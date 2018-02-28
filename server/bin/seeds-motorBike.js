@@ -13,35 +13,35 @@ mongoose
     console.log(e);
   });
 
-User.findById({ _id:"5a9582390b04ad356c4202ce" }).then(user => {
-  const id = user._id.toString();
+const motorBikes = [
+  {
+    brand: "BMW",
+    model: "R NINE T",
+    horsePower: 1200,
+    rents: [],
+  },
+  {
+    brand: "MvAugusta",
+    model: "Brutale",
+    horsePower: 800,
+    rents: [],
+  }
+];
 
-  const motorBikes = [
-    {
-      brand: "BMW",
-      model: "R NINE T",
-      horsePower: 1200,
-      rents: [],
-      propietorId: "5a9582390b04ad356c4202ce" //herminia
-    },
-    {
-      brand: "MvAugusta",
-      model: "Brutale",
-      horsePower: 800,
-      rents: [],
-      propietorId: "5a9582390b04ad356c4202cd" //josiño
-    }
-  ];
-  MotorBike.collection.drop();
 
-  MotorBike.create(motorBikes, (err, bike) => {
-    if (err) {
-      throw err;
-    }
-    console.log(user)
-    motorBikes.forEach(bike => {
-      user.myBikes.push(bike._id);
-      console.log(bike.brand);
-    });
-  });
-});
+MotorBike.collection.drop();
+
+// const newMotorbike = new MotorBike(motorBikes[0]);
+// newMotorbike.save()
+
+MotorBike.create(motorBikes)
+.then(newMotorbike => {
+  User.find().limit(1).then(user=>{
+    console.log(newMotorbike[0]._id )
+    User.updateOne({_id: user[0]._id},{ $push: { myBikes: newMotorbike[0]._id } })
+    .then(updatedUser=>console.log(updatedUser))
+  })
+})
+
+
+

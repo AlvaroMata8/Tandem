@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const {dbURL} = require('./config');
 const cors = require('cors');
 const auth = require('./routes/auth');
+const generatorCrud = require('./routes/crud')
 
 const app = express();
 
