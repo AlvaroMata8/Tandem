@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const User = require('./User');
 const Rent = require('./Rent');
 
-const MotorBikeSchema = new Schema(
+const motorBikeRentSchema = new Schema(
   {
     brand: {
       type:String,
@@ -18,10 +18,12 @@ const MotorBikeSchema = new Schema(
         type:Schema.Types.ObjectId,
         ref:'User'
     },
-    rents:[{
-      type: Schema.Types.ObjectId,
-      ref: 'Rent'
-    }]
+    city:String,
+    price:[Number],
+    motorBikeImg:[String],
+    use:String,
+    recogida: Date,
+    entrega: Date
   },
   {
     timestamps: {
@@ -31,5 +33,5 @@ const MotorBikeSchema = new Schema(
   }
 );
 
-const MotorBike = mongoose.model("MotorBike", MotorBikeSchema);
-module.exports = MotorBike;
+const MotorBikeRent = mongoose.model("MotorBikeRent", motorBikeRentSchema);
+module.exports = MotorBikeRent;

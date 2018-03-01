@@ -1,18 +1,22 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User").Schema;
-const MotorBike = require ('./MotorBike');
+const MotorBikeRent = require ('./MotorBikeRent');
 
 const contractSchema = new Schema(
   {
-    ownerId:{
+    arrendadorId:{
         type:[Schema.Types.ObjectId],
         ref:'User'
     },
     motorBikeId:{
         type:[Schema.Types.ObjectId],
-        ref:'MotorBike'
-    }
+        ref:'MotorBikeRent'
+    },
+    arrendatarioId:{
+      type:[Schema.Types.ObjectId],
+      ref:'User'
+  },
   }
 );
 

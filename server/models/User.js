@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const MotorBike = require('./MotorBike')
+const MotorBikeRent = require('./MotorBikeRent')
 
 const userSchema = new Schema(
   {
@@ -18,7 +18,7 @@ const userSchema = new Schema(
     },
     myBikes:[{
       type:Schema.Types.ObjectId,
-      ref:'MotorBike'
+      ref:'MotorBikeRent'
     }],
     lastName: String,
     userImage:String,

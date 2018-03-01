@@ -24,10 +24,10 @@ app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-var whitelist = [
+let whitelist = [
   'http://localhost:4200',
 ];
-var corsOptions = {
+let corsOptions = {
   origin: function(origin, callback){
       var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
       callback(null, originIsWhitelisted);
@@ -53,6 +53,7 @@ app.use(session({
 require('./passport')(app);
 
 const user = require('./routes/api/user');
+
 app.use('/', user)
 app.use('/api/auth', auth);
 

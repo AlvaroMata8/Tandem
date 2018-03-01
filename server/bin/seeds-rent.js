@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const MotorBike = require("../models/MotorBike");
+const MotorBikeRent = require("../models/MotorBikeRent");
 const Rent = require('../models/Rent');
 
 
@@ -16,7 +16,7 @@ mongoose
   });
 
 const userPromise = User.find();
-const motorBikePromise = MotorBike.find();
+const motorBikePromise = MotorBikeRent.find();
 Rent.collection.drop();
 Promise.all([userPromise, motorBikePromise])
   .then(promisesArray =>{

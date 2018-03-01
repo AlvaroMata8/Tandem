@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User").Schema;
-const MotorBike = require ('./MotorBike');
+const MotorBikeRent = require ('./MotorBikeRent');
 const Contract = require ('./Contract');
 
 const rentSchema = new Schema(
@@ -13,12 +13,9 @@ const rentSchema = new Schema(
     city:String,
     motorBikeId:{
         type:[Schema.Types.ObjectId],
-        ref:'MotorBike'
+        ref:'MotorBikeRent'
     },
-    contract:[{
-      type:Schema.Types.ObjectId,
-      ref:'Contract'
-    }],
+ 
     price:Number,
     recogida:{
         // sitio:[Punto1,Punto2,Punto3,Punto4],

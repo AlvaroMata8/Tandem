@@ -24,7 +24,7 @@ router.post('/signup', (req, res, next) => {
         username,
         password: hashPass
       });
-      return theUser.save()
+      return User.save()
           .then(user => loginPromise(req,user))
           .then(user => {
             debug(`Registered user ${user._id}. Welcome ${user.username}`);
