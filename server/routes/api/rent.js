@@ -40,8 +40,16 @@ router.post("/newRent", (req, res) => {
     entrega: req.body.entrega,
     img: req.body.img
   });
+
   newMotorBikeRent.save()
   .then(newMotorbikeRentSaved=>{
+    MotorBikeRent.findById(newMotorbikeRentSaved._id)
+    .then( newBike =>{
+      newBike.save()
+      .then(bikeSaved =>{
+        
+      })
+    })
     console.log(`Puesta en alquiler: ${newMotorbikeRentSaved._id}`);
     console.log(`Quien lo pone en alquiler: ${req.user._id}`);
 

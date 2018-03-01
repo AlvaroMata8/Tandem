@@ -53,6 +53,10 @@ export class SessionService {
       .catch(this.handleError);
   }
 
+  addRent(brand:string,model:string,horsePower:number,city:string,price:number,use:string,recogida:Date,entrega:Date,img:string){
+    return this.http.post(`${this.BASEURL}/api/newRent`,{brand,model,horsePower,city,price,use,recogida,entrega,img}, this.options)
+  }
+
   login(username:string, password:string):Observable<any>{
     return this.http.post(`${this.BASEURL}/auth/login`, {username,password},this.options)
       .map(res => res.json())
