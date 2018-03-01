@@ -5,7 +5,7 @@ const User = require("../../models/User");
 const _ = require("lodash");
 
 //Get All users
-router.get("/users", function(req, res, next) {
+router.get("/list", function(req, res, next) {
   debug(`Retrieving all`);
   User.find(req.query)
     .then(allUsers => res.status(200).json(allUsers))
@@ -19,8 +19,9 @@ router.get("/:id", function(req, res, next) {
     .then(oneUser => res.status(200).json(oneUser))
     .catch(e => res.status(500).json(e));
 });
+
 /* U => UPDATE */
-router.put("/:id", function(req, res, next) {
+router.put("/edit/:id", function(req, res, next) {
   // Get only the properties we need
   const model_properties = _.remove(
     Object.keys(User.schema.paths),
@@ -36,8 +37,9 @@ router.put("/:id", function(req, res, next) {
     .catch(e => res.status(500).json(e));
 });
 
+
 /* D => DELETE */
-router.get("/delete/:id", function(req, res, next) {
+router.post("/delete/:id", function(req, res, next) {
   User.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).json({ message: "removed" }))
     .catch(e => res.status(500).json(e));
