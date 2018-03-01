@@ -1,0 +1,35 @@
+<div *ngIf="!session.getUser()" style="text-align:center">
+  <form>
+    <h2>Signup </h2>
+    <label> Username: </label>
+    <input type="text" [(ngModel)]="username" name="username"/>
+    <br>
+    <label> Password: </label>
+    <input type="password" [(ngModel)]="password" name="password"/>
+    <br>
+    <label> Name: </label>
+    <input type="text" [(ngModel)]="name" name="name"/>
+    <br>
+    <label> Last name: </label>
+    <input type="text" [(ngModel)]="lastName" name="lastName"/>
+    <br>
+    <label> Image:</label>
+    <input type="text" [(ngModel)]="userImage" name="userImage"/>
+    <br>
+    <label> License: </label>
+    <input type="text" [(ngModel)]="license" name="license"/>
+    <br>
+    <label> City: </label>
+    <input type="text" [(ngModel)]="city" name="city"/>
+    <br>
+    <div>
+      <button (click)="signup()"> Submit </button>
+    </div>
+  </form>
+  <p *ngIf="error" class="error"> {{ error }} </p>
+</div>
+
+<div *ngIf="session.getUser()">
+  <pre> {{ session.getUser() | json }} </pre>
+  <button (click)="logout()"> Logout </button>
+</div>

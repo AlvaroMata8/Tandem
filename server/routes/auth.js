@@ -13,8 +13,8 @@ let loginPromise = (req, user) => {
 
 /* SIGNUP */
 router.post('/signup', (req, res, next) => {
-  const {username,password} = req.body;
-  if (!username || !password) return res.status(400).json({ message: 'Provide username and password' })
+  const {username,password,name,lastName,userImage,license,city} = req.body;
+  if (!username || !password || !name || !lastName || !userImage || !license || !city) return res.status(400).json({ message: 'Fill all the camps!' })
   User.findOne({ username }, '_id')
     .then(foundUser =>{
       if (foundUser) return res.status(400).json({ message: 'The username already exists' });
@@ -22,9 +22,14 @@ router.post('/signup', (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
       const theUser = new User({
         username,
-        password: hashPass
+        password: hashPass,
+        name,
+        lastName,
+        userImage,
+        license,
+        city
       });
-      return User.save()
+      return theUser.save()
           .then(user => loginPromise(req,user))
           .then(user => {
             debug(`Registered user ${user._id}. Welcome ${user.username}`);

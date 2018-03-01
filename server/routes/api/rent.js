@@ -4,8 +4,8 @@ const router = express.Router();
 
 // Retrieve all de RENTS
 router.get("/", (req, res) => {
-  console.log(req);
   MotorBikeRent.find()
+  .populate("owner")
     .then(rents => {
       if (rents.length === 0)
         res.status(404).json({ message: "There are no rents!" });
@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
 });
 
 //Create a RENT
-router.post("/newRent/:id", (req, res) => {
+router.post("/newRent", (req, res) => {
   const newMotorBikeRent = new MotorBikeRent({
     brand: req.body.brand,
     model: req.body.model,
@@ -42,7 +42,9 @@ router.post("/newRent/:id", (req, res) => {
   });
   newMotorBikeRent.save()
   .then(newMotorbikeRentSaved=>{
-    User.findOneAndUpdate({})
+    console.log(`Puesta en alquiler: ${newMotorbikeRentSaved._id}`);
+    console.log(`Quien lo pone en alquiler: ${req.user._id}`);
+
   })
   .catch(err=>res.status(500).json(err))
     console.log('RENT CREATED')
