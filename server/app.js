@@ -52,10 +52,11 @@ app.use(session({
 
 require('./passport')(app);
 
-const user = require('./routes/api/user');
+const routes = require('./routes/index');
 
-app.use('/', user)
-app.use('/api/auth', auth);
+
+app.use('/api', routes);
+app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

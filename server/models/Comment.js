@@ -4,7 +4,7 @@ const User = require("./User").Schema;
 
 const commentSchema = new Schema(
   {
-    usernameId: {
+    userId: {
       type:[Schema.Types.ObjectId],
       ref:'User'
     },

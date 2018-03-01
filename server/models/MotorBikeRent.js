@@ -1,26 +1,25 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require('./User');
-const Rent = require('./Rent');
 
 const motorBikeRentSchema = new Schema(
   {
     brand: {
       type:String,
-      required:[true,'Please enter a brand']
+      required:[true,'Please enter the brand']
     },
     model: {
       type:String,
-      required:[true,'Please enter a model']
+      required:[true,'Please enter the model']
     },
     horsePower: Number,
-    propietorId:{
+    owner:{
         type:Schema.Types.ObjectId,
         ref:'User'
     },
     city:String,
     price:[Number],
-    motorBikeImg:[String],
+    img:[String],
     use:String,
     recogida: Date,
     entrega: Date

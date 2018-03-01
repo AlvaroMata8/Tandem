@@ -19,25 +19,6 @@ router.get("/:id", function(req, res, next) {
     .then(oneUser => res.status(200).json(oneUser))
     .catch(e => res.status(500).json(e));
 });
-
-/* C => CREATE */
-router.post("/newUser", function(req, res, next) {
-  // Get only the properties we need
-  const model_properties = _.remove(
-    Object.keys(User.schema.paths),
-    k => !["_id", "__v", "created_at", "updated_at"].includes(k)
-  );
-  const obj_data = _.pick(req.body, model_properties);
-
-  const User = new User(obj_data);
-  User.save()
-    .then(obj => {
-      debug(`CREATED: ${obj._id}`);
-      res.status(201).json(obj);
-    })
-    .catch(e => res.status(500).json(e));
-});
-
 /* U => UPDATE */
 router.put("/:id", function(req, res, next) {
   // Get only the properties we need
