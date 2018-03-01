@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
 });
 
 //Create a RENT
-router.post("/newRent:id/", (req, res) => {
+router.post("/newRent/:id", (req, res) => {
   const newMotorBikeRent = new MotorBikeRent({
     brand: req.body.brand,
     model: req.body.model,

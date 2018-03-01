@@ -5,10 +5,6 @@ const MotorBikeRent = require ('./MotorBikeRent');
 
 const contractSchema = new Schema(
   {
-    arrendadorId:{
-        type:[Schema.Types.ObjectId],
-        ref:'User'
-    },
     motorBikeId:{
         type:[Schema.Types.ObjectId],
         ref:'MotorBikeRent'

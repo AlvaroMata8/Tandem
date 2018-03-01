@@ -6,7 +6,7 @@ const user = require('./user');
 const router = express.Router();
 
 router.use('/rent', bikeRent);
-// router.use('/contract', contract);
+router.use('/contract', contract);
 router.use('/user', user);
     
 module.exports = router;
