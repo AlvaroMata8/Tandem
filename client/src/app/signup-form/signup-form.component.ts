@@ -28,11 +28,11 @@ export class SignupFormComponent implements OnInit {
     .catch(e => this.error = e)
     .subscribe(
       (user) =>{
-        this.router.navigate(['/'])
+        this.router.navigate(['/newRent'])
       }
     );
   }
-  
+
   logout(){
     this.session.logout()
     .catch(e => this.error = e)

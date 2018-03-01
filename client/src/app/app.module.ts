@@ -8,7 +8,8 @@ import { SessionService } from '../services/session.service';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { routes } from './routes';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component'; 
+import { HomeComponent } from './home/home.component';
+import { NewRentFormComponent } from './new-rent-form/new-rent-form.component'; 
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginFormComponent,
     SignupFormComponent,
-    HomeComponent
+    HomeComponent,
+    NewRentFormComponent
   ],
   imports: [
     BrowserModule,
