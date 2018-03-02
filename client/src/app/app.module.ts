@@ -9,7 +9,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { routes } from './routes';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { NewRentFormComponent } from './new-rent-form/new-rent-form.component'; 
+import { NewRentFormComponent } from './new-rent-form/new-rent-form.component';
+import { ProfileComponent } from './profile/profile.component'; 
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NewRentFormComponent } from './new-rent-form/new-rent-form.component';
     LoginFormComponent,
     SignupFormComponent,
     HomeComponent,
-    NewRentFormComponent
+    NewRentFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

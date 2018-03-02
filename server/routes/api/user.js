@@ -14,7 +14,7 @@ router.get("/list", function(req, res, next) {
 
 // Retrieve one
 router.get("/:id", function(req, res, next) {
-  debug(`Retrieving id: ${req.params.id}`);
+  console.log(`Retrieving id: ${req.params.id}`);
   User.findById(req.params.id)
     .then(oneUser => res.status(200).json(oneUser))
     .catch(e => res.status(500).json(e));

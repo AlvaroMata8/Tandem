@@ -38,25 +38,22 @@ router.post("/newRent", (req, res) => {
     use: req.body.use,
     recogida: req.body.recogida,
     entrega: req.body.entrega,
-    img: req.body.img
+    img: req.body.img,
+    owner:req.user._id
   });
 
   newMotorBikeRent.save()
-  .then(newMotorbikeRentSaved=>{
-    MotorBikeRent.findById(newMotorbikeRentSaved._id)
-    .then( newBike =>{
-      newBike.save()
-      .then(bikeSaved =>{
-        
+  .then(thatBike =>{
+      User.findByIdAndUpdate(thatBike.owner,{$push: {myBikes: thatBike._id}})
+      .then(bike => {
+        console.log(`Puesta en alquiler: ${newMotorbikeRentSaved._id}`);
+        console.log(`Quien lo pone en alquiler: ${thatBike.owner}`);
+        res.status(200).json(bike);
       })
+      //.catch(err=>res.status(500).json(err));
     })
-    console.log(`Puesta en alquiler: ${newMotorbikeRentSaved._id}`);
-    console.log(`Quien lo pone en alquiler: ${req.user._id}`);
-
+  
   })
-  .catch(err=>res.status(500).json(err))
-    console.log('RENT CREATED')
-});
 
 //Edit RENT
 router.put("/edit/:id",(req,res) =>{

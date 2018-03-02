@@ -26,5 +26,6 @@ export class NewRentFormComponent implements OnInit {
     this.session.addRent(this.brand,this.model,this.horsePower,this.city,this.price,this.use,this.recogida,this.entrega,this.img)
     .catch(e => this.error = e)
     .subscribe();
+    // console.log(this.brand,this.model)
   }
 }

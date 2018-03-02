@@ -1,37 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../services/session.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { SessionService } from "../../services/session.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  selector: "app-login-form",
+  templateUrl: "./login-form.component.html",
+  styleUrls: ["./login-form.component.css"]
 })
 export class LoginFormComponent implements OnInit {
+  username: string;
+  password: string;
+  error: string;
 
-  username:string;
-  password:string;
-  error:string;
-  constructor(public session:SessionService,private router:Router) { }
+  constructor(public session: SessionService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  login() {
+    this.session.login(this.username, this.password).subscribe(user => {
+      console.log(user);
+      this.router.navigate(["/profile"]);
+    }, err => (this.error = err));
+  }
+  errorCb(err) {
+    this.error = err;
+    this.username = null;
   }
 
-  login(){
-    this.session.login(this.username,this.password)
-    .catch(e => this.error = e)
-    .subscribe(user =>{ 
-
-        this.router.navigate(['/newRent'])
-      
-      console.log(`Welcome ${user.username}`)
-    });
+  successCb(user) {
+    this.username = user;
+    this.error = null;
   }
-
-  logout(){
-    this.session.logout()
-    .catch(e => this.error = e)
-    .subscribe();
-  }
-
 }
