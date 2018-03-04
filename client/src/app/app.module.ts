@@ -14,6 +14,7 @@ import { NewRentFormComponent } from './new-rent-form/new-rent-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RentDetailComponent } from './rent-detail/rent-detail.component';
 import { RentListComponent } from './rent-list/rent-list.component'; 
+import { UserService } from '../services/user.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { RentListComponent } from './rent-list/rent-list.component';
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService,RentService],
+  providers: [SessionService,RentService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

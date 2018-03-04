@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 
 @Injectable()
@@ -24,8 +25,18 @@ export class RentService {
     .map((res) => res.json());
   }
   
-  addRent(brand:string,model:string,horsePower:number,city:string,price:number,use:string,recogida:Date,entrega:Date,img:string):Observable<any>{
+  addRent(brand:string,model:string,horsePower:number,city:string,price:number,use:string,recogida:Date,entrega:Date,img:string){
     return this.http.post(`${this.BASEURL}/api/rent/newRent`,{brand,model,horsePower,city,price,use,recogida,entrega,img}, this.options)
+    .map(res => {
+      console.log('Rent Guardado')
+      return res.status
+    })
+    .catch(this.handleError)
+  }
+  
+  handleError(e) {
+    console.log(e);
+    return Observable.throw(e.json().message);
   }
 
 //   editRent(id){

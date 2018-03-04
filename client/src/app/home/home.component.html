@@ -1,25 +1,25 @@
 <p> This is the homepage </p>
-<div  style="text-align:center" *ngIf="!session.getUser()">
+<div style="text-align:center">
 
-      <button [routerLink]="['login']"> Login </button>
-      <button [routerLink]="['signup']"> Signup </button>
-      <br>
-      <br>
-      <button [routerLink]="['rentList']">ALQUILAR UNA MOTO</button>
-      <button [routerLink]="['newRent']">ALQUILAR MI MOTO</button>
- 
+  <button [routerLink]="['rentList']">ALQUILAR UNA MOTO</button>
+  <button [routerLink]="['newRent']">ALQUILAR MI MOTO</button>
+</div>
+<div style="text-align:center" *ngIf="!session.getUser()">
+
+  <button [routerLink]="['login']"> Login </button>
+  <button [routerLink]="['signup']"> Signup </button>
+  <br>
+
   <p *ngIf="error" class="error"> {{ error }} </p>
 </div>
 
 <div *ngIf="session.getUser()">
   <button (click)="logout()"> Logout </button>
-    <div style="text-align:center">
+  <a [routerLink]="['profile', session.getUser()._id]">My profile</a>
 
-      <button [routerLink]="['rentList']">ALQUILAR UNA MOTO</button>
-      <button [routerLink]="['newRent']">ALQUILAR MI MOTO</button>
-    </div>
 </div>
 <br>
 <div style="text-align:center">
-  <img src="https://www.topgear.com/sites/default/files/styles/fit_1960x1102/public/images/news-article/carousel/2016/05/2b43c81e11a5f5b32700f312ec1cd9e5/da_mark_ii_series_general.jpg?itok=dLR-xrCb" width="80%" alt="">
+  <img src="https://www.topgear.com/sites/default/files/styles/fit_1960x1102/public/images/news-article/carousel/2016/05/2b43c81e11a5f5b32700f312ec1cd9e5/da_mark_ii_series_general.jpg?itok=dLR-xrCb"
+    width="80%" alt="">
 </div>

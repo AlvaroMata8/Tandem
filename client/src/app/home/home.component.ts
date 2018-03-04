@@ -9,13 +9,17 @@ import { Router } from "@angular/router";
 })
 export class HomeComponent implements OnInit {
   error: string;
+  user:any;
   constructor(public session: SessionService,private router:Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.session.getUser())
+  }
 
   logout() {
     this.session.logout()
       .catch(e => (this.error = e))
       .subscribe();
   }
+
 }

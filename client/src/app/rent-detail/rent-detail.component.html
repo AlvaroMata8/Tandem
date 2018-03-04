@@ -1,6 +1,8 @@
-<p>
-  rent-detail works!
-</p>
-<div>
-  <img src="{{rent.img}}" alt="">
+
+<div *ngIf="rent">
+  <h1>{{rent.brand}} - {{rent.model}}</h1>
+  <h3>Price: {{rent.price}}</h3>
+  
+  <img src="{{rent.img[0]}}" alt="" width="20%">
+  <img src="{{rent.img[1]}}" alt="" width="20%">
 </div>

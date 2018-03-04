@@ -1,6 +1,8 @@
-<p>
-  profile works!
-</p>
-<div *ngIf="session.getUser()">
-  <button (click)="logout()"> Logout </button>
+
+<div *ngIf="user">
+    <h1>Su puto perfil - {{user.username}}</h1>
+     <h3>{{user.name}} - {{user.lastName}}</h3> 
+     <h3>{{user.license}}</h3>
+     <h3>{{user.city}}</h3>
+     <img src="{{user.userImage}}" alt="" width="10%">
 </div>

@@ -20,7 +20,7 @@ const motorBikes = [
     horsePower: 1200,
     city:"Madrid",
     price:50,
-    motorBikeImg:[String],
+    img:["https://auto.ndtvimg.com/bike-images/medium/bmw/r-nine-t/bmw-r-nine-t.jpg?v=10","https://s3-eu-west-1.amazonaws.com/cdn.motorbikemag.es/wp-content/uploads/2015/12/BMW-R-NineT-Estudio.jpg"],
     use:"City",
     recogida: new Date(),
     entrega: new Date()
@@ -31,7 +31,7 @@ const motorBikes = [
     horsePower: 800,
     city:"Madrid",
     price:[30],
-    motorBikeImg:[String],
+    img:[],
     use:"City",
     recogida: new Date(),
     entrega: new Date()

@@ -28,8 +28,7 @@ export class NewRentFormComponent implements OnInit {
   createRent(){
     this.rentS.addRent(this.brand,this.model,this.horsePower,this.city,this.price,this.use,this.recogida,this.entrega,this.img)
     .catch(e => this.error = e)
-    .subscribe( () =>{
-      this.router.navigate(['profile'])
+    .subscribe(status =>{ if(status === 200) this.router.navigate(['/rentList'])
     });
   }
 }

@@ -1,12 +1,12 @@
 <h1>
  LISTA DE ALQUILERES
 </h1>
+
 <div *ngFor="let r of rentList">
   <div>
     <h2>{{r.brand}} - {{r.model}}</h2>
     <h2>Use: {{r.use}}</h2>
     <h2>Price: {{r.price}}</h2>
     <button [routerLink]="['/rent',r._id]">Details</button>
-    <img src={{r.img}} alt="">
   </div>
 </div>
