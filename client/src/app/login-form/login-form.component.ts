@@ -19,7 +19,7 @@ export class LoginFormComponent implements OnInit {
   login() {
     this.session.login(this.username, this.password).subscribe(user => {
       console.log(user);
-      this.router.navigate(["/profile"]);
+      this.router.navigate(["/"]);
     }, err => (this.error = err));
   }
   errorCb(err) {
@@ -30,5 +30,12 @@ export class LoginFormComponent implements OnInit {
   successCb(user) {
     this.username = user;
     this.error = null;
+  }
+
+  logout() {
+    this.session
+      .logout()
+      .catch(e => (this.error = e))
+      .subscribe();
   }
 }

@@ -43,6 +43,7 @@ router.post("/newRent", (req, res) => {
   });
 
   newMotorBikeRent.save()
+  console.log('llega')
   .then(thatBike =>{
       User.findByIdAndUpdate(thatBike.owner,{$push: {myBikes: thatBike._id}})
       .then(bike => {

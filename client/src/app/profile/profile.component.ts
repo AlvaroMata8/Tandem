@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,7 @@ import { SessionService } from '../../services/session.service';
 export class ProfileComponent implements OnInit {
   error:string;
   
-  constructor( public session:SessionService) { }
+  constructor( public session:SessionService,private router:Router) { }
 
   ngOnInit() {
   }
@@ -17,7 +18,11 @@ export class ProfileComponent implements OnInit {
   logout(){
     this.session.logout()
     .catch(e => this.error = e)
-    .subscribe();
+    .subscribe(
+    //   ()=>{
+    //   this.router.navigate(['/'])
+    // }
+  );
   }
 
 }

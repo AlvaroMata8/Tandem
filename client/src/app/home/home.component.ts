@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   logout() {
-    this.session
-      .logout()
+    this.session.logout()
       .catch(e => (this.error = e))
       .subscribe();
   }
