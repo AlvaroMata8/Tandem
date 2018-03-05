@@ -7,7 +7,8 @@ import { ProfileComponent } from "./profile/profile.component";
 import { RentDetailComponent } from "./rent-detail/rent-detail.component";
 import { RentListComponent } from "./rent-list/rent-list.component";
 import { RentEditComponent } from "./rent-edit/rent-edit.component";
-
+import { UserEditComponent } from "./user-edit/user-edit.component"
+ 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "profile/:id", component: ProfileComponent },
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: "signup", component: SignupFormComponent },
   { path: "newRent", component: NewRentFormComponent },
   { path: "rent/edit/:id", component: RentEditComponent},
+  { path: "user/edit/:id", component: UserEditComponent },
   { path: "rent/:id", component: RentDetailComponent },
   { path: "rentList", component: RentListComponent }
 ];

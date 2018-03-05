@@ -19,9 +19,9 @@ get(id){
     .map((res) => res.json());
   }
 
-// editUser(user){
-//     return this.http.put(`${this.BASEURL}/api/user/edit/${user._id}`,user)
-// }
+editUser(id,form){
+    return this.http.put(`${this.BASEURL}/api/user/edit/${id}`,form)
+}
 
 
 }

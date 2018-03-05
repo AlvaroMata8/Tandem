@@ -22,6 +22,7 @@ import { UserService } from '../services/user.service';
 import { SessionService } from '../services/session.service';
 import { RentService } from '../services/rent.service';
 import { RentEditComponent } from './rent-edit/rent-edit.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { RentEditComponent } from './rent-edit/rent-edit.component';
     ProfileComponent,
     RentDetailComponent,
     RentListComponent,
-    RentEditComponent
+    RentEditComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
