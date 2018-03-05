@@ -11,7 +11,7 @@
         </div>
         <form (ngSubmit)="submitForm(rent._id, editRent)" #editRent="ngForm">
           <div class="cophoto" style="text-align:center">
-            <img [src]="rent.img" width="100" />
+            <img [src]="rent.img" width="50%" />
           </div>
           <br>
           <label> Foto </label>
@@ -36,10 +36,10 @@
           <input type="text" #editrentuse="ngModel" [(ngModel)]="rent.use" name="use">
           <br>
           <label> Available from </label>
-          <input type="text" #editrentrecogida="ngModel" [(ngModel)]="rent.recogida" name="recogida">
+          <input type="date" #editrentrecogida="ngModel" [(ngModel)]="rent.recogida" name="recogida">
           <br>
           <label> Available to </label>
-          <input type="text" #editrententrega="ngModel" [(ngModel)]="rent.entrega" name="entrega">
+          <input type="date" #editrententrega="ngModel" [(ngModel)]="rent.entrega" name="entrega">
           <br>
           <div class="savebutton" style="text-align:center">
             <button class="btn btn-primary" type="submit">Save</button>

@@ -1,13 +1,35 @@
 <h1>
  LISTA DE ALQUILERES
 </h1>
+<div  class="card-deck">
 
-<div *ngFor="let r of rentList">
-  <div>
-    <h2>{{r.brand}} - {{r.model}}</h2>
-    <h2>Use: {{r.use}}</h2>
-    <h2>Price: {{r.price}}</h2>
-    <h2>City: {{r.city}}</h2>
-    <button [routerLink]="['/rent',r._id]">Details</button>
+  <!--Card-->
+  <div *ngFor="let r of rentList" class="card mb-4">
+
+      <!--Card image-->
+      <div class="view overlay">
+          <img class="img-fluid" src="{{r.img}}" alt="Card image cap">
+          <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+          </a>
+      </div>
+      <!--Card image-->
+
+      <!--Card content-->
+      <div class="card-body">
+
+          <!--Title-->
+          <h4 class="card-title">{{r.brand}} - {{r.model}}</h4>
+
+          <!--Text-->
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <button class="btn-floating btn-large waves-effect waves-light btn btn-floating btn pulse" [routerLink]="['/rent',r._id]"><i class="material-icons">+</i></button>
+      </div>
+      <!--Card content-->
+      
   </div>
+
 </div>
+<!--Card group-->

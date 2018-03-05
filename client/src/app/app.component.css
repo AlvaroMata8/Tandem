@@ -1,3 +1,11 @@
-.home-page{
-    background-color: lightcoral;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: aqua;
+}
+.nav-wrapper{
+
 }
