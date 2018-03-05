@@ -21,7 +21,7 @@ export class NewRentFormComponent implements OnInit {
   img:string;
   error:string;
 
-  constructor(public rentS:RentService, private router: Router) { }
+  constructor(public rentS:RentService,public session: SessionService, private router: Router) { }
 
   ngOnInit() {
   }

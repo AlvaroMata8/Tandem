@@ -1,4 +1,8 @@
-<div style="text-align:center">
+<div *ngIf="!session.getUser()">
+  <h1>For create a rent you must be registered</h1>
+</div>
+
+<div *ngIf="session.getUser()" style="text-align:center">
   <form >
     <div >
       <h1>Rent Form</h1>

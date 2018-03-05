@@ -43,7 +43,7 @@ export class RentService {
         return res.status;
       })
       .catch(this.handleError);
-  }
+    }
 
   handleError(e) {
     console.log(e);

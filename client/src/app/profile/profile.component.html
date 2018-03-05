@@ -7,11 +7,13 @@
         <h3><u>Ciudad</u>: {{user.city}}</h3>
         <img src="{{user.userImage}}" alt="" width="10%">
     </div>
-    <div>
-        <button> Edit</button>
-        <button> Delete</button>
-    </div>
+    <div *ngIf="this.session.getUser()._id == user._id">
+        <div>
+            <button> Edit</button>
+            <button> Delete</button>
+        </div>
         <div>
             <button>Mis alquileres</button>
         </div>
+    </div>
 </div>
