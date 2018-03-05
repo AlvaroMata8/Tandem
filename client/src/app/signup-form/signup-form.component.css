@@ -1,0 +1,13 @@
+.text-red{
+    color:red;
+}
+
+label{
+    color:red;
+}
+
+form{
+    width:50%;
+    text-align: center;
+    margin:0 auto;
+}

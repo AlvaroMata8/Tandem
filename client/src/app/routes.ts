@@ -6,6 +6,7 @@ import { NewRentFormComponent } from "./new-rent-form/new-rent-form.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { RentDetailComponent } from "./rent-detail/rent-detail.component";
 import { RentListComponent } from "./rent-list/rent-list.component";
+import { RentEditComponent } from "./rent-edit/rent-edit.component";
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: "login", component: LoginFormComponent },
   { path: "signup", component: SignupFormComponent },
   { path: "newRent", component: NewRentFormComponent },
+  { path: "rent/edit/:id", component: RentEditComponent},
   { path: "rent/:id", component: RentDetailComponent },
   { path: "rentList", component: RentListComponent }
 ];

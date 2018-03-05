@@ -1,8 +1,15 @@
-
-<div *ngIf="rent">
-  <h1>{{rent.brand}} - {{rent.model}}</h1>
-  <h3>Price: {{rent.price}}</h3>
-  
-  <img src="{{rent.img[0]}}" alt="" width="20%">
-  <img src="{{rent.img[1]}}" alt="" width="20%">
+<div *ngIf="rent" >
+    <div class="col-3 backbtn" style="text-align:center">
+        <a [routerLink]="['/rentList']">
+          <button class="btn btn-primary"> back </button>
+        </a>
+      </div>
+  <div>
+    <h1>{{rent.brand}} - {{rent.model}}</h1>
+    <h3>Price: {{rent.price}}</h3>
+    
+    <img src="{{rent.img[0]}}" alt="" width="20%">
+    <img src="{{rent.img[1]}}" alt="" width="20%">
+  </div>
+  <button [routerLink]="['/rent/edit', rent._id]">Edit</button>
 </div>

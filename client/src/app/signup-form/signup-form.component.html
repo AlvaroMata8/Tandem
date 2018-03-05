@@ -1,4 +1,4 @@
-<div *ngIf="!session.getUser()" style="text-align:center">
+<div *ngIf="!session.getUser()" class="text-red" style="text-align:center">
   <form>
     <h2>Signup </h2>
     <label> Username: </label>
@@ -33,3 +33,5 @@
   <pre> {{ session.getUser() | json }} </pre>
   <button (click)="logout()"> Logout </button>
 </div>
+
+

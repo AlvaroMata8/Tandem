@@ -56,38 +56,20 @@ router.post("/newRent", (req, res) => {
 
 //Edit RENT
 router.put("/edit/:id", (req, res) => {
-  const {
-    brand,
-    model,
-    horsePower,
-    city,
-    price,
-    use,
-    recogida,
-    entrega,
-    img
-  } = req.body;
-  const updates = {
-    brand,
-    model,
-    horsePower,
-    city,
-    price,
-    use,
-    recogida,
-    entrega,
-    img
-  };
-
-  MotorBikeRent.findByIdAndUpdate(req.params.id, updates, { new: true })
+  MotorBikeRent.findById(req.params.id,(err,rent)=>{
+    const {brand,model,horsePower,city,price,use,recogida,entrega,img} = req.body;
+    const updates = {brand,model,horsePower,city,price,use,recogida,entrega,img};
+    
+    MotorBikeRent.findByIdAndUpdate(req.params.id, updates, { new: true })
     .then(newMotorBikeRent => res.status(200).json(newMotorBikeRent))
     .catch(error => res.status(500).json(error));
+  })
 });
 
 //DELETE RENT
 router.post("/delete/:id", (req, res) => {
   MotorBikeRent.findByIdAndRemove(req.params.id)
-    .then(rent => res.status(200).json(rent))
-    .catch(e => res.status(500).json(error));
+    .then(() => res.status(200).json({message:'removed'}))
+    .catch(e => res.status(500).json(e));
 });
 module.exports = router;

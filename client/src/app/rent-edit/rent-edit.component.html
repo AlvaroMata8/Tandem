@@ -1,0 +1,59 @@
+<div *ngIf="rent">
+    <div class="row">
+      <div class="col-3 backbtn" style="text-align:center">
+        <a [routerLink]="['/rent', rent._id]">
+          <button class="btn btn-primary"> back </button>
+        </a>
+      </div>
+      <div class="col-6">
+        <div class="editrenthead" style="text-align:center">
+          <h1>Edit Rent</h1>
+        </div>
+        <form (ngSubmit)="submitForm(rent._id, editRent)" #editRent="ngForm">
+          <div class="cophoto" style="text-align:center">
+            <img [src]="rent.img" width="100" />
+          </div>
+          <br>
+          <label> Foto </label>
+          <input type="text" #editRentImg="ngModel" [(ngModel)]="rent.img" name="img" minlength="3" pattern="https?://.+">
+          <br>
+          <label> Brand </label>
+          <input type="text" #editrentbrand="ngModel" [(ngModel)]="rent.brand" name="brand">
+          <br>
+          <label> Model </label>
+          <input type="text" #editrentmodel="ngModel" [(ngModel)]="rent.model" name="model">
+          <br>
+          <label> CC </label>
+          <input type="text" #editrenthorsePower="ngModel" [(ngModel)]="rent.horsePower" name="horsePower">
+          <br>
+          <label> Price </label>
+          <input type="text" #editrentprice="ngModel" [(ngModel)]="rent.price" name="price">
+          <br>
+          <label> City </label>
+          <input type="text" #editrentcity="ngModel" [(ngModel)]="rent.city" name="city">
+          <br>
+          <label> For use in </label>
+          <input type="text" #editrentuse="ngModel" [(ngModel)]="rent.use" name="use">
+          <br>
+          <label> Available from </label>
+          <input type="text" #editrentrecogida="ngModel" [(ngModel)]="rent.recogida" name="recogida">
+          <br>
+          <label> Available to </label>
+          <input type="text" #editrententrega="ngModel" [(ngModel)]="rent.entrega" name="entrega">
+          <br>
+          <div class="savebutton" style="text-align:center">
+            <button class="btn btn-primary" type="submit">Save</button>
+          </div>
+        </form>
+        <br>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+  <div class="deletebutton" style="text-align:center">
+    <button class="btn btn-primary" (click)="deleteRent()">Delete Rent</button>
+  </div>
+  <div>
+    <p *ngIf="error" class="error"> {{ error }} </p>
+  </div>
+  

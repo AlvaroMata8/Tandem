@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-rent-form.component.css']
 })
 export class NewRentFormComponent implements OnInit {
+  
   brand:string;
   model:string;
   horsePower:number;
