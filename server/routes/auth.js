@@ -66,7 +66,7 @@ router.get('/logout', (req, res, next) => {
 
 //CHECK IF IS LOGGED
 router.get('/loggedin', (req, res, next) => {
-  if (req.isAuthenticated()) return res.status(200).json({message:'El usuario esta conectado'});
+  if (req.isAuthenticated()) return res.status(200).json(req.user);
   res.status(403).json({ message: 'Unauthorized' });
 });
 

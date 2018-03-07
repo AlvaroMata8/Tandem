@@ -1,7 +1,11 @@
+// //Angular2-Materialize
+import { MaterializeModule } from 'angular2-materialize';
+
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule,ApplicationRef } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { AgmCoreModule } from '@agm/core';
 
 //Componentes
 import { AppComponent } from "./app.component";
@@ -12,10 +16,9 @@ import { NewRentFormComponent } from "./new-rent-form/new-rent-form.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { RentDetailComponent } from "./rent-detail/rent-detail.component";
 import { RentListComponent } from "./rent-list/rent-list.component";
+import { RentEditComponent } from "./rent-edit/rent-edit.component";
+import { UserEditComponent } from "./user-edit/user-edit.component";
 
-// //Angular-Material
-// import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-// import { MaterialModule} from "@angular/material";
 
 //Rutas
 import { routes } from "./routes";
@@ -25,8 +28,8 @@ import { RouterModule } from "@angular/router";
 import { UserService } from "../services/user.service";
 import { SessionService } from "../services/session.service";
 import { RentService } from "../services/rent.service";
-import { RentEditComponent } from "./rent-edit/rent-edit.component";
-import { UserEditComponent } from "./user-edit/user-edit.component";
+import { ContractService } from "../services/contract.service";
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,13 +46,14 @@ import { UserEditComponent } from "./user-edit/user-edit.component";
   ],
   imports: [
     BrowserModule,
+    MaterializeModule,
+    CommonModule,
+    AgmCoreModule.forRoot({apiKey:'AIzaSyCwaebcPrjga0Ve9s_rZikQXY-Eh5vfeLo'}),
     HttpModule,
-    // BrowserAnimationsModule,
-    // MaterialModule,
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, RentService, UserService],
+  providers: [SessionService, RentService, UserService,ContractService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

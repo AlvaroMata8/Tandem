@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { RentService } from '../../services/rent.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-rent-edit',
@@ -21,12 +22,16 @@ export class RentEditComponent implements OnInit {
 
   rent:any;
   error:string;
-
+  user;
   constructor(
     public router:Router,
     private route:ActivatedRoute,
-    private rentS:RentService
-  ) { }
+    private rentS:RentService,
+    public session:SessionService
+  ) { 
+    this.user = this.session.getUser()
+    this.session.getUserEvent().subscribe(user => this.user = user)
+  }
 
   ngOnInit() {
     this.route.params.subscribe( params =>{

@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
   providers:[SessionService]
 })
 export class AppComponent {
-  title = 'Tandem';
   error:string;
   user:any;
-  constructor(public session: SessionService,private router:Router) {}
-
-  ngOnInit() {
-    console.log(this.session.getUser())
+  constructor(public session: SessionService,private router:Router) {
+    this.user = this.session.getUser()
+    this.session.getUserEvent().subscribe(user => this.user = user)
   }
+
+
   logout() {
     this.session.logout()
       .catch(e => (this.error = e))

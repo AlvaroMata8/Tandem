@@ -4,8 +4,12 @@ a{
     text-decoration: none;
 }
 a:hover{
-    color: aqua;
+    color: rgb(58, 30, 5);
 }
-.nav-wrapper{
+img{
+    display: inline-block;
+    position: top;
+}
 
-}
+
+

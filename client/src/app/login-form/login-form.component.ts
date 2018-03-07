@@ -11,8 +11,11 @@ export class LoginFormComponent implements OnInit {
   username: string;
   password: string;
   error: string;
-
-  constructor(public session: SessionService, private router: Router) {}
+  user;
+  constructor(public session: SessionService, private router: Router) {
+    this.user = this.session.getUser()
+    this.session.getUserEvent().subscribe(user => this.user = user)
+  }
 
   ngOnInit() {}
 

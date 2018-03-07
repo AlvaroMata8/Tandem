@@ -11,5 +11,7 @@
     <img src="{{rent.img[0]}}" alt="" width="20%">
     <img src="{{rent.img[1]}}" alt="" width="20%">
   </div>
-  <button [routerLink]="['/rent/edit', rent._id]">Edit</button>
+  <button class="btn btn-primary" [routerLink]="['/rent/edit', rent._id]">Edit</button>
+<div><button class="btn btn-primary" (click)="addContract(rent,rent.owner,user)">Rent it!</button></div>
+<div><h4>For rent a bike ,please signup or login</h4></div>
 </div>

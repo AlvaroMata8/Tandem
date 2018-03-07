@@ -13,13 +13,15 @@ export class UserEditComponent implements OnInit {
   user:any;
   error:string;
 
-  username:string;
   name:string;
   lastName:string;
   userImage:string;
   license:string;
   city:string;
-  constructor(public userS:UserService,public session:SessionService,private route:ActivatedRoute,private router:Router) { }
+  constructor(public userS:UserService,public session:SessionService,private route:ActivatedRoute,private router:Router) { 
+    this.user = this.session.getUser()
+    this.session.getUserEvent().subscribe(user => this.user = user)
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

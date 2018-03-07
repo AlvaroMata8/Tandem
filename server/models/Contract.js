@@ -13,6 +13,8 @@ const contractSchema = new Schema(
       type:[Schema.Types.ObjectId],
       ref:'User'
   },
+    start:Date,
+    end:Date
   }
 );
 

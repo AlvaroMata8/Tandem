@@ -1,34 +1,28 @@
 <header>
-  <nav class="navbar navbar-expand-lg fixed navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Tandem</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['login']">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"[routerLink]="['signup']">Signup</a>
-          </li>
+    <div class="navbar-fixed">
+    <nav >
+      <div class="nav-wrapper amber darken-3">
+        <a href="#" class="brand-logo"><img src="https://tbncdn.freelogodesign.org/93a2c370-1e94-45cc-8d7a-f97d7a0bb856.png?1520384818556" width="100" alt=""></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a [routerLink]="['/']">Home</a></li>
+          <li><a [routerLink]="['login']">Login</a></li>
+          <li><a [routerLink]="['signup']">Signup</a></li>
           <li *ngIf="session.getUser()">
-              <a class="nav-link" [routerLink]="['profile', session.getUser()._id]">My profile</a>
-          </li>
-          <li *ngIf="session.getUser()">
-            <a class="nav-link" (click)="logout()">Logout</a>
-          </li>
+            <a [routerLink]="['profile', session.getUser()._id]">My profile</a>
+        </li>
+        <li *ngIf="session.getUser()">
+          <a (click)="logout()">Logout</a>
+        </li>
         </ul>
       </div>
     </nav>
+  </div>
+  </header>
+
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    
   </h1>
 </div>
 
 <router-outlet></router-outlet>
-</header>

@@ -8,12 +8,12 @@ router.post("/newcontract/:rentId", (req, res) => {
     console.log(req.user)
     const newContract = new Contract({
         motorBikeId:req.params.rentId,
-        arrendatarioId:req.user.id
+        arrendatarioId:req.user._id
     });
     newContract.save()
     .then(newContractSaved=> res.status(200).json(newContractSaved))
+            console.log('Contract CREATED')
     .catch(err=>res.status(500).json(err))
-      console.log('Contract CREATED')
   });
 
   //DELETE RENT

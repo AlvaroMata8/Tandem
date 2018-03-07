@@ -7,6 +7,9 @@ import { RentService } from '../../services/rent.service';
   styleUrls: ['./rent-list.component.css']
 })
 export class RentListComponent implements OnInit {
+  title: string = 'My first AGM project';
+  lat: number = 51.678418;
+  lng: number = 7.809007;
   rentList:Array<any>
 
   constructor(public rentS:RentService) {
@@ -14,6 +17,7 @@ export class RentListComponent implements OnInit {
    }
 
   ngOnInit() {
+    
   }
 
 }

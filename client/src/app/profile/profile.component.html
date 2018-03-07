@@ -1,18 +1,33 @@
-<div *ngIf="user">
-    <div> 
-        <h1>Your fucking profile - {{user.username}}</h1>
-        <h3><u>Name and Surname</u>: {{user.name}} - {{user.lastName}} </h3> 
-        <h3><u>License</u>: {{user.license}} </h3>
-        <h3><u>City</u>: {{user.city}}</h3>
-        <img src="{{user.userImage}}" alt="" width="10%">
+<div *ngIf="user" class="container">    
+        <div class="row">
+            <div class="panel panel-default">
+            <div class="panel-heading">  <h4 >{{user.username}} Profile</h4></div>
+             <div class="panel-body">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+             <img alt="User Pic" src="{{user.userImage}}" id="profile-image1" class="img-circle img-responsive"> 
+        
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                <div class="container" >
+                  <h2>{{user.name}}</h2>
+                  <p>a   <b> Bike Lover</b></p>
+                </div>
+                 <hr>
+                <ul class="container details" >
+                  <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>{{user.name}} {{user.lastName}}</p></li>
+                  <li><p><span class="glyphicon glyphicon-globe" style="width:50px;"></span>{{user.city}}</p></li>
+                  <li><p><span class="glyphicon glyphicon-list-alt" style="width:50px;"></span>{{user.license}}</p></li>
+                </ul>
+                <hr>
+            </div>
+      </div>
     </div>
-    <div *ngIf="this.session.getUser()._id == user._id">
-        <div>
-            <button [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
-            <button> Delete</button>
+    <div >
+            <div>
+                <button  class="btn btn-primary" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
+                <button class="btn btn-primary" (click)="deleteUser()"> Delete</button>
+                <button class="btn btn-primary">My Rents</button>
+            </div>
         </div>
-        <div>
-            <button>My Rents</button>
-        </div>
-    </div>
+  </div>
 </div>
