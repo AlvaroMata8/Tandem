@@ -10,7 +10,8 @@ const mongoose = require('mongoose');
 const {dbURL} = require('./config');
 const cors = require('cors');
 const auth = require('./routes/auth');
-var multer = require('multer');
+
+
 
 const app = express();
 
