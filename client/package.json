@@ -30,6 +30,7 @@
     "jquery": "^2.2.4",
     "materialize-css": "^0.100.2",
     "materialize-social": "^1.0.3",
+    "ng2-search-filter": "^0.4.7",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

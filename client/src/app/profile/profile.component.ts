@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteUser(id){
-    console.log('RENT DELETED')
+    console.log('USER DELETED')
     this.uS.removeUser(this.user._id)
       .subscribe(r =>{
         this.router.navigate(['/'])

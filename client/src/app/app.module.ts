@@ -6,6 +6,7 @@ import { NgModule,ApplicationRef } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { AgmCoreModule } from '@agm/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //Componentes
 import { AppComponent } from "./app.component";
@@ -50,6 +51,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     AgmCoreModule.forRoot({apiKey:'AIzaSyCwaebcPrjga0Ve9s_rZikQXY-Eh5vfeLo'}),
     HttpModule,
+    Ng2SearchPipeModule,
     FormsModule,
     RouterModule.forRoot(routes)
   ],
