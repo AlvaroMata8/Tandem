@@ -3,11 +3,13 @@ import { Http, Response } from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { Observable } from "rxjs/Rx";
+import { environment }  from '../environments/environment';
+
 
 @Injectable()
 export class ContractService {
-
-  BASEURL: string = "http://localhost:3000";
+  BASEURL:string= environment.BASEURL;
+  // BASEURL: string = "http://localhost:3000";
   options: object = { withCredentials: true };
   constructor(private http: Http) {}
 
