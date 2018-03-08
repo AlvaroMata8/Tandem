@@ -28,10 +28,13 @@ export class SignupFormComponent implements OnInit {
     this.session.signup(this.username,this.password,this.name,this.lastName,this.userImage,this.license,this.city)
     .catch(e => this.error = e)
     .subscribe(
-      // (user) =>{
-      //   this.router.navigate(['/newRent'])
-      // }
-    );
+      (user) =>{
+        this.router.navigate(["/"])
+        console.log("User created")
+      },
+     (err) => this.error = err
+   );
+  
   }
 
   logout(){

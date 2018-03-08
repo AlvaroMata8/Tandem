@@ -49,6 +49,7 @@ export class NewRentFormComponent implements OnInit {
     img: '',
     bikeType:''
   }
+  error:string;
   constructor(public rentS:RentService,public session: SessionService, private router: Router,private http:Http) { }
 
   ngOnInit() {
@@ -56,6 +57,13 @@ export class NewRentFormComponent implements OnInit {
 
   createRent(rentObject){
     this.rentS.addRent(rentObject,this.session.getUser())
-    .subscribe(res=>console.log(res))
+    .subscribe(
+      (rent) =>{
+        this.router.navigate(["/"])
+        console.log("Rent Created")
+      },
+     (err) => this.error = err
+   );
+    
   }
 }

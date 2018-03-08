@@ -1,39 +1,28 @@
+<div class="col-3 backbtn" style="text-align:center">
+  <a [routerLink]="['/rentList']">
+    <button class="btn btn-primary amber darken-3"> back </button>
+  </a>
+</div>
 <div *ngIf="!this.session.getUser()">
   <h1>For see the details you must be loged in</h1>
 </div>
 
 <div *ngIf="this.session.getUser()">
-  
-  <div class="col-3 backbtn" style="text-align:center">
-    <a [routerLink]="['/rentList']">
-      <button class="btn btn-primary amber darken-3"> back </button>
-    </a>
-  </div>
+
+
   <div>
     <h1>{{rent.brand}} - {{rent.model}}</h1>
     <h3>Price: {{rent.price}}</h3>
 
     <img src="{{rent.img}}" alt="" width="20%">
   </div>
-  <div *ngIf="!user">
-  
-    <div class="col-3 backbtn" style="text-align:center">
-      <a [routerLink]="['/rentList']">
-        <button class="btn btn-primary amber darken-3"> back </button>
-      </a>
-    </div>
-    <div>
-      <h1>{{rent.brand}} - {{rent.model}}</h1>
-      <h3>Price: {{rent.price}}</h3>
-  
-      <img src="{{rent.img}}" alt="" width="20%">
-    </div>
 
   <div *ngIf="this.user._id !== undefined">
     <div *ngIf="this.user._id === rent.owner">
       <button class="btn btn-primary amber darken-3" [routerLink]="['/rent/edit', rent._id]">Edit</button>
     </div>
   </div>
+
 
   <div *ngIf="this.user._id !== rent.owner">
     <button class="btn btn-primary amber darken-3" (click)="addContract(rent,rent.owner,user)">Rent it!</button>
@@ -43,4 +32,6 @@
   </div>
 
 </div>
+
+
 <br>
