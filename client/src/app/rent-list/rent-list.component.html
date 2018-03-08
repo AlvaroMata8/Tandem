@@ -1,10 +1,20 @@
 <div style="text-align:center">
-  <h1>
-    Chose your city
-  </h1>
+    <div class="slider">
+        <div class="caption">
+          Choose your
+          <div class="text-box">
+            <div>city</div>
+            <div>bike</div>
+            <div>experience</div>
+          </div>
+        </div>
+      </div>
 </div>
+
 <div class="angular-maps">
   <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
 </div>
@@ -23,7 +33,7 @@
       </div>
       <div class="card-content brown darken-4">
         <p class="amber-text text-darken-3">I am a very simple card. I am good at containing small bits of information. I am convenient because I require little
-          markup to use effectively.</p>
+          markup to use effectively.</p><h6 class="white-text text-darken-3">Price: {{r.price}}</h6>
       </div>
     </div>
   </div>

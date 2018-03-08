@@ -11,9 +11,9 @@ export class UserService {
 
   constructor(private http: Http) {}
 
-  get(id) {
+  get(userId) {
     return this.http
-      .get(`${this.BASEURL}/api/user/${id}`)
+      .get(`${this.BASEURL}/api/user/${userId}`)
       .map(res => res.json());
   }
 

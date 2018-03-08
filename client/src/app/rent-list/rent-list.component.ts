@@ -7,9 +7,9 @@ import { RentService } from '../../services/rent.service';
   styleUrls: ['./rent-list.component.css']
 })
 export class RentListComponent implements OnInit {
-  title: string = 'My first AGM project';
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  title: string = '';
+  lat: number = 40.47237;
+  lng: number = -3.682040;
   rentList:Array<any>
 
   constructor(public rentS:RentService) {

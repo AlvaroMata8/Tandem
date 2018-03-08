@@ -12,38 +12,28 @@ export class RentService {
   constructor(private http: Http) {}
 
   getRent() {
-    return this.http.get(`${this.BASEURL}/api/rent`).map(res => res.json());
+    return this.http.get(`${this.BASEURL}/api/rent`,this.options).map(res => res.json());
   }
 
   getOneRent(id) {
-    return this.http
-      .get(`${this.BASEURL}/api/rent/${id}`)
+    console.log(id);
+    return this.http.get(`${this.BASEURL}/api/rent/${id}`)
       .map(res => res.json());
   }
 
-  addRent(
-    brand: string,
-    model: string,
-    horsePower: number,
-    city: string,
-    price: number,
-    use: string,
-    recogida: Date,
-    entrega: Date,
-    img: string
-  ) {
+  addRent(rent,user) {
+    const object = {
+      rent: rent,
+      user: user
+    }
     return this.http
-      .post(
-        `${this.BASEURL}/api/rent/newRent`,
-        { brand, model, horsePower, city, price, use, recogida, entrega, img },
-        this.options
-      )
+      .post(`${this.BASEURL}/api/rent/newRent`, object, this.options)
       .map(res => {
-        console.log("Rent Guardado");
-        return res.status;
+        console.log(res)
+        res.json();
       })
       .catch(this.handleError);
-    }
+  }
 
   handleError(e) {
     console.log(e);
@@ -56,8 +46,9 @@ export class RentService {
       .map(res => res.status)
       .catch(this.handleError);
   }
-  removeRent(id){
-    return this.http.post(`${this.BASEURL}/api/rent/delete/${id}`,this.options)
-      .map((res) => res.json())
+  removeRent(id) {
+    return this.http
+      .post(`${this.BASEURL}/api/rent/delete/${id}`, this.options)
+      .map(res => res.json());
   }
 }

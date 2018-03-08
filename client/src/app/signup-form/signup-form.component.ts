@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
+
   username:string;
   password:string;
   name:string;

@@ -10,42 +10,52 @@ import { Http } from '@angular/http';
   styleUrls: ['./new-rent-form.component.css']
 })
 export class NewRentFormComponent implements OnInit {
-  filesToUpload: Array<File> = [];
-  brand:string;
-  model:string;
-  horsePower:number;
-  city:string;
-  price:number;
-  use:string;
-  recogida:Date;
-  entrega:Date;
-  img:string;
-  error:string;
   
+  latCity: number = 40.472371;
+  lngCity: number = -3.682040;
+  latMad1:number = 40.472371;
+  lngMad1:number =-3.682040;
+
+  latMad2:number = 40.341772;
+  lngMad2:number =-3.714453;
+
+  latMad3:number = 40.445486;
+  lngMad3:number =-3.806707;
+
+  latMad4:number = 40.421365;
+  lngMad4:number =-3.620868;
+
+  latGal1:number = 43.334399;
+  lngGal1:number =-8.232939;
+
+  latGal2:number = 43.516619;
+  lngGal2:number =-8.152839;
+
+  latGal3:number = 43.187381;
+  lngGal3:number =-8.764811;
+
+  latGal4:number = 42.912237;
+  lngGal4:number =-8.022098;
+  user:object;
+  rent:object = {
+    brand: '',
+    model: '',
+    horsePower: '',
+    city: '',
+    price: '',
+    use: '',
+    recogida: '',
+    entrega: '',
+    img: '',
+    bikeType:''
+  }
   constructor(public rentS:RentService,public session: SessionService, private router: Router,private http:Http) { }
 
   ngOnInit() {
   }
 
-  createRent(){
-    this.rentS.addRent(this.brand,this.model,this.horsePower,this.city,this.price,this.use,this.recogida,this.entrega,this.img)
-    .catch(e => this.error = e)
-    .subscribe(status =>{ if(status === 200) this.router.navigate(['/rentList'])
-    });
-  }
-  upload() {
-    const formData: any = new FormData();
-    const files: Array<File> = this.filesToUpload;
-
-    formData.append("uploads[]", files[0], files[0]['name']);
-    
-    this.http.post('http://localhost:3001/upload', formData)
-      .map(files => files.json())
-      .subscribe(files => console.log('files', files))
-  }
-
-  fileChangeEvent(fileInput: any) {
-    this.filesToUpload = <Array<File>>fileInput.target.files;
-    this.img = fileInput.target.files[0]['name'];
+  createRent(rentObject){
+    this.rentS.addRent(rentObject,this.session.getUser())
+    .subscribe(res=>console.log(res))
   }
 }

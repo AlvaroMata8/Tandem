@@ -3,33 +3,74 @@
 </div>
 
 <div *ngIf="session.getUser()" style="text-align:center">
-  <form >
-    <div >
-      <h1>Rent Form</h1>
-      <label>Brand:</label><br>
-      <input type="text" [(ngModel)]="brand"name="brand"><br>
-      <label>Model:</label><br>
-      <input type="text" [(ngModel)]="model"name="model"><br>
-      <label>CC:</label><br>
-      <input type="number" [(ngModel)]="horsePower"name="horsePower"><br>
-      <label>City:</label><br>
-      <input type="text" [(ngModel)]="city"name="city"><br>
-      <label>Price:</label><br>
-      <input type="text" [(ngModel)]="price"name="price"><br>
-      <label>Use:</label><br>
-      <input type="text" [(ngModel)]="user"name="use"><br>
-      <label>Pick-Up date:</label><br>
-      <input type="date" [(ngModel)]="recogida"name="recogida"><br>
-      <label>Deliver date:</label><br>
-      <input type="date" [(ngModel)]="entrega"name="entrega"><br>
-      <label>Images:</label><br>
-      <input type="text" [(ngModel)]="img"name="img"><br>
+  <div class="row">
+    <div class="col s12 m4 l4">
+      <form>
+        <h1>Rent Form</h1>
+        <label>Brand:</label>
+        <br>
+        <input type="text" [(ngModel)]="rent.brand" name="brand">
+        <br>
+        <label>Model:</label>
+        <br>
+        <input type="text" [(ngModel)]="rent.model" name="model">
+        <br>
+        <label>CC:</label>
+        <br>
+        <input type="number" [(ngModel)]="rent.horsePower" name="horsePower">
+        <br>
+        <label>City:</label>
+        <br>
+        <input type="text" [(ngModel)]="rent.city" name="city">
+        <br>
+        <label>Price:</label>
+        <br>
+        <input type="text" [(ngModel)]="rent.price" name="price">
+        <br>
+        <label>Use:</label>
+        <br>
+        <input type="text" [(ngModel)]="rent.use" name="use">
+        <br>
+        <label>Type</label>
+        <select class="browser-default" [(ngModel)]="rent.bikeType" name="bikeType">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Scooter</option>
+          <option value="2">Sport</option>
+          <option value="3">Trail</option>
+          <option value="4">Cross</option>
+        </select>
+        <label>Pick-Up date:</label>
+        <br>
+        <input type="date" [(ngModel)]="rent.recogida" name="recogida">
+        <br>
+        <label>Deliver date:</label>
+        <br>
+        <input type="date" [(ngModel)]="rent.entrega" name="entrega">
+        <br>
+        <label>Images:</label>
+        <br>
+        <input type="text" [(ngModel)]="rent.img" name="img">
+        <br>
+      </form>
+      <button class="waves-effect waves-light btn btn-primary amber darken-3" (click)="createRent(rent)">Enviar</button>
     </div>
-    <button (click)="createRent()">Enviar</button>
-  </form>
-  <input id="cin" name="cin" type="file" (change)="fileChangeEvent($event)" placeholder="Upload a file..." multiple/>
-<button type="button" class="btn btn-success btn-s" (click)="upload()">
-    <i class="glyphicon glyphicon-open-file"></i>&nbsp;Upload
-</button>
-</div>
+    <div>
 
+      <div>
+        <span class="flow-text">
+          <div class="angular-maps">
+            <agm-map [latitude]="latCity" [longitude]="lngCity">
+              <agm-marker [latitude]="latMad1" [longitude]="lngMad1"></agm-marker>
+              <agm-marker [latitude]="latMad2" [longitude]="lngMad2"></agm-marker>
+              <agm-marker [latitude]="latMad3" [longitude]="lngMad3"></agm-marker>
+              <agm-marker [latitude]="latMad4" [longitude]="lngMad4"></agm-marker>
+              <agm-marker [latitude]="latGal1" [longitude]="lngGal1"></agm-marker>
+              <agm-marker [latitude]="latGal2" [longitude]="lngGal2"></agm-marker>
+              <agm-marker [latitude]="latGal3" [longitude]="lngGal3"></agm-marker>
+              <agm-marker [latitude]="latGal4" [longitude]="lngGal4"></agm-marker>
+            </agm-map>
+          </div>
+        </span>
+
+      </div>
+    </div>

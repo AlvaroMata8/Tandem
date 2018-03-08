@@ -6,6 +6,7 @@ import { SessionService } from '../../services/session.service';
 import { ContractService } from '../../services/contract.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-rent-detail',
   templateUrl: './rent-detail.component.html',
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
 
 export class RentDetailComponent implements OnInit {
   rent:any;
-  user;
+ 
+  user:any;
   error:string;
 
   constructor(
@@ -27,34 +29,30 @@ export class RentDetailComponent implements OnInit {
     {
       this.user = this.session.getUser()
       this.session.getUserEvent().subscribe(user => {this.user = user
-      console.log(this.user._id)
       })
 
    }
 
-
-
   ngOnInit() {
-  
-    this.route.params.subscribe( params => {
+      this.route.params.subscribe( params => {
       this.getRentId(params['id']);
+        this.rentS.getOneRent(params['id']).subscribe()
         this.getUser(params['id']);
+        console.log(this.rent)
     })
 }
 
   getUser(id) {
-  this.userS.get(id).subscribe((user) => {
+  this.userS.get(this.user._id).subscribe((user) => {
       this.user = user;
-      
     });
 }
 
   addContract(id1,id2,id3){
     console.log(this.user)
     console.log("(.)(.)")
-    console.log(this.rent._id)
-    console.log(this.rent.owner)
-    console.log(id3)
+    console.log(this.rent)
+    console.log(this.rent)
     this.contract.addContract(id1,id2,id3)
     .catch(e => this.error = e)
     .subscribe( status =>{ 
@@ -65,7 +63,13 @@ export class RentDetailComponent implements OnInit {
 
 
   getRentId(id){
-    this.rentS.getOneRent(id).subscribe((rent => this.rent = rent));
-
+    this.rentS.getOneRent(id).subscribe((rent) => {
+      this.rent = rent});
   }
+
+  remove(id){
+    this.rentS.removeRent(this.rent._id).subscribe(r =>{
+      console.log('RENT REMOVED')
+      this.router.navigate(['/'])})
+}
 }

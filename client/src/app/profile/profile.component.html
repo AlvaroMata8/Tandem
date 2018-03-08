@@ -23,8 +23,8 @@
       </div>
     </div>
     <div >
-            <div>
-                <button  class="btn btn-primary" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
+            <div *ngIf="session.getUser()._id === user._id">
+                <button class="btn btn-primary" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
                 <button class="btn btn-primary" (click)="deleteUser()"> Delete</button>
                 <button class="btn btn-primary">My Rents</button>
             </div>

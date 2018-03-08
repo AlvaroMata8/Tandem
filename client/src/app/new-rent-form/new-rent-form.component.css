@@ -1,0 +1,43 @@
+agm-map {
+  height: 800px;
+
+}
+
+.angular-maps {
+  margin: 25px;
+}
+
+.vwt-List {
+  background: #fff;
+  color: #000;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-transition: 0.2s ease-in height, step-end box-shadow 0.2s;
+  -moz-transition: 0.2s ease-in height, step-end box-shadow 0.2s;
+  transition: 0.2s ease-in height, step-end box-shadow 0.2s;
+}
+.vwt-List li {
+  padding: 10px 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.vwt-List li:hover {
+  background-color: #f8f8f8;
+}
+.vwt-List li.vwt-List-selected {
+  background-color: #e8e8e8;
+  font-weight: bold;
+}
+li.vwt-List-selected::after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #5264ae;
+  float: right;
+  position: relative;
+}
