@@ -18,9 +18,14 @@ const motorBikeRentSchema = new Schema(
         ref:'User'
     },
     city:String,
-    price:[Number],
-    img:[String],
+    price:Number,
+    img:String,
     use:String,
+    bikeType:{"type": "array",
+              "items": {"type": "string",
+              "enum": ["Scooter", "Sport", "Trail","Cross"]
+            }
+    },
     recogida: Date,
     entrega: Date
   },
