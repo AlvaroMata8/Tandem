@@ -12,7 +12,6 @@ router.post("/newcontract/:rentId", (req, res) => {
     });
     newContract.save()
     .then(newContractSaved=> res.status(200).json(newContractSaved))
-            console.log('Contract CREATED')
     .catch(err=>res.status(500).json(err))
   });
 

@@ -24,9 +24,9 @@
     </div>
     <div >
             <div *ngIf="session.getUser()._id === user._id">
-                <button class="btn btn-primary" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
-                <button class="btn btn-primary" (click)="deleteUser()"> Delete</button>
-                <button class="btn btn-primary">My Rents</button>
+                <button class="waves-effect waves-light btn amber darken-3" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
+                <button class="waves-effect waves-light btn red darken-3" (click)="deleteUser()"> Delete</button>
+                <button class="waves-effect waves-light btn amber darken-3">My Rents</button>
             </div>
         </div>
   </div>
