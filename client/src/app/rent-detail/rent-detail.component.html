@@ -38,14 +38,19 @@
     <div class="col s7 push-s5">
       <span class="flow-text">
         <h1>{{rent.brand}} - {{rent.model}}</h1>
-        <h3>Price: {{rent.price}}</h3>
-        <h3>Location: {{rent.where}}</h3>
+        <h3><u>Price</u>: <i>{{rent.price}}</i></h3>
+        <h3><u>Point to pick-up and deliver</u>: <i>{{rent.where}}</i></h3>
+        <h3><u>Only for use in</u>: <i>{{rent.use}}</i></h3>
+        <h3><u>CC</u>: <i>{{rent.horsePower}}</i></h3>
+        <h3><u>Required license</u>: <i>{{user.license}}</i></h3>
+        <h3><u>Pick-Up date</u>: <i>{{rent.recogida}}</i></h3>
+        <h3><u>Deliver date</u>: <i>{{rent.entrega}}</i></h3>
       </span>
     </div>
     <div class="col s5 pull-s7">
       <span class="flow-text">
       </span>
-      <img src="{{rent.img}}" alt="" width="100%">
+      <img src="{{rent.img}}" alt="" width="100%" style="border:2px solid rgb(250, 116, 7)">
       <div *ngIf="this.user._id !== undefined">
           <div *ngIf="this.user._id === rent.owner">
             <button class="waves-effect waves-accent-2 btn amber darken-3" [routerLink]="['/rent/edit', rent._id]">Edit</button>

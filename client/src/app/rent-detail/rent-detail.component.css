@@ -3,3 +3,20 @@
     of the button to still show through. */
      background-color: rgba(121, 85, 72, 0.65);
    }
+
+   .row{
+     color:rgb(46, 19, 9);
+     min-height: 300px;
+     
+   }
+   i{
+     color:rgb(250, 116, 7);
+   }
+
+   .row .col[class*="push-"], .row .col[class*="pull-"] {
+    position: absolute;
+}
+
+.flow-text{
+  font-size: 18px !important;
+}
