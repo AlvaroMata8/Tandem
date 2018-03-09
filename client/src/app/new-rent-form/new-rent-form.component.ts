@@ -47,7 +47,8 @@ export class NewRentFormComponent implements OnInit {
     recogida: '',
     entrega: '',
     img: '',
-    bikeType:''
+    bikeType:'',
+    where:''
   }
   error:string;
   constructor(public rentS:RentService,public session: SessionService, private router: Router,private http:Http) { }
@@ -59,7 +60,7 @@ export class NewRentFormComponent implements OnInit {
     this.rentS.addRent(rentObject,this.session.getUser())
     .subscribe(
       (rent) =>{
-        this.router.navigate(["/"])
+        this.router.navigate(["/rentList"])
         console.log("Rent Created")
       },
      (err) => this.error = err

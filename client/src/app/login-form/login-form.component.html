@@ -1,4 +1,5 @@
 <div style="text-align:center" *ngIf="!session.getUser()">
+  <div>
   <form>
     <h2> Login </h2>
     <label> Username </label>
@@ -7,9 +8,11 @@
     <label> Password </label>
     <input type="password" [(ngModel)]="password" name="password"/>
     <div>
-      <button (click)="login()"> Login</button>
+      <button class="waves-effect waves-light btn amber darken-3" (click)="login()" onclick="Materialize.toast('Conected!', 2000, 'green center rounded','background-color:red')"> Login</button>
     </div>
   </form>
-  <p *ngIf="error" class="error"> {{ error }} </p>
+</div>
+  <br>
+  <p class="shake" *ngIf="error" class="error"> {{ error }} </p>
 </div>
 

@@ -26,6 +26,10 @@ const motorBikeRentSchema = new Schema(
               "enum": ["Scooter", "Sport", "Trail","Cross"]
             }
     },
+    where:{"type": "array",
+    "items": {"type": "string",
+    "enum": ["North", "South", "East","West"]
+  }},
     recogida: Date,
     entrega: Date
   },

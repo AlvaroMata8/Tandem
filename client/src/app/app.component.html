@@ -20,8 +20,9 @@
   </header>
 
 <div style="text-align:center">
-  <h1>
-    
+  <br>
+  <h1 *ngIf="session.getUser()">
+    Hi {{session.getUser().username}}
   </h1>
 </div>
 

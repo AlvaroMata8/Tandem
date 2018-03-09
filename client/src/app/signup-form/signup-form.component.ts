@@ -36,6 +36,15 @@ export class SignupFormComponent implements OnInit {
    );
   
   }
+  errorCb(err) {
+    this.error = err;
+    this.username = null;
+  }
+
+  successCb(user) {
+    this.username = user;
+    this.error = null;
+  }
 
   logout(){
     this.session.logout()

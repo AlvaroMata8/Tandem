@@ -23,6 +23,7 @@ const motorBikes = [
     img:"https://auto.ndtvimg.com/bike-images/medium/bmw/r-nine-t/bmw-r-nine-t.jpg?v=10",
     use:"City",
     bikeType:['Sport'],
+    where:['North'],
     recogida: new Date(),
     entrega: new Date()
   },
@@ -35,6 +36,7 @@ const motorBikes = [
     img:'https://cdn.shopify.com/s/files/1/0863/6486/products/ducati-mv-agusta-motorcycle-products-mv-agusta-brutale-800-my16-dragster-my17-qd-exhaust-slash-cut-4_2000x.jpg?v=1510928653',
     use:"City",
     bikeType:['Sport'],
+    where:['East'],
     recogida: new Date(),
     entrega: new Date()
   }

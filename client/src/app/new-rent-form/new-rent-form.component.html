@@ -32,12 +32,20 @@
         <input type="text" [(ngModel)]="rent.use" name="use">
         <br>
         <label>Type</label>
-        <select class="browser-default" [(ngModel)]="rent.bikeType" name="bikeType">
+        <select class="browser-default" type="text" [(ngModel)]="rent.bikeType" name="bikeType">
           <option value="" disabled selected>Choose your option</option>
-          <option value="1">Scooter</option>
-          <option value="2">Sport</option>
-          <option value="3">Trail</option>
-          <option value="4">Cross</option>
+          <option value="Scooter">Scooter</option>
+          <option value="Sport">Sport</option>
+          <option value="Trail">Trail</option>
+          <option value="Cross">Cross</option>
+        </select>
+        <label>Place</label>
+        <select class="browser-default" type="text" [(ngModel)]="rent.where" name="where">
+          <option value="" disabled selected>Choose where</option>
+          <option value="North">North</option>
+          <option value="South">South</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
         </select>
         <label>Pick-Up date:</label>
         <br>

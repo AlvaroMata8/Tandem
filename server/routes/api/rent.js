@@ -45,7 +45,8 @@ router.post("/newRent", (req, res) => {
     entrega: req.body.rent.entrega,
     img: req.body.rent.img,
     owner: req.body.user._id,
-    bikeType:req.body.rent.bikeType
+    bikeType:req.body.rent.bikeType,
+    where:req.body.rent.where
   });
 
   newMotorBikeRent
@@ -61,8 +62,8 @@ router.post("/newRent", (req, res) => {
 //Edit RENT
 router.put("/edit/:id", (req, res) => {
   MotorBikeRent.findById(req.params.id,(err,rent)=>{
-    const {brand,model,horsePower,city,price,use,recogida,entrega,img,bikeType} = req.body;
-    const updates = {brand,model,horsePower,city,price,use,recogida,entrega,img,bikeType};
+    const {brand,model,horsePower,city,price,use,recogida,entrega,img,bikeType,where} = req.body;
+    const updates = {brand,model,horsePower,city,price,use,recogida,entrega,img,bikeType,where};
     
     MotorBikeRent.findByIdAndUpdate(req.params.id, updates, { new: true })
     .then(newMotorBikeRent => res.status(200).json(newMotorBikeRent))
