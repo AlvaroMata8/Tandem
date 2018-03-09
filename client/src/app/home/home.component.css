@@ -5,3 +5,13 @@
 .logo{
     text-align: center;
 }
+
+video{
+    position: fixed;
+    min-height: 100px;
+}
+
+.botonsicos{
+    width:100%;
+    text-align:center;
+}

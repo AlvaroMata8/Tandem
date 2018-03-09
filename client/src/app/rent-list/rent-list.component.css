@@ -1,194 +1,215 @@
 
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v18/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
-  }
-  
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -moz-font-feature-settings: 'liga';
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .middle-indicator{
-     position:absolute;
-     top:50%;
-     }
-    .middle-indicator-text{
-     font-size: 4.2rem;
-    }
-    a.middle-indicator-text{
-      color:white !important;
-    }
-  .content-indicator{
-      width: 64px;
-      height: 64px;
-      background: none;
-      -moz-border-radius: 50px;
-      -webkit-border-radius: 50px;
-      border-radius: 50px; 
-    }
-      .indicators{
-        visibility: hidden;
-    }
-    img{
-      height:300px;
-    }
-    .card .card-image img{
-      width: auto;
-      display: inline-block;
-    }
-    .card{
-        border:3px solid rgb(246, 160, 0);
-        display: inline-block;
-        margin: 15px;
-        min-height: 476px;
-        text-align: center;
-    }
-    .row{
-      text-align: center;
-    }
-  
-    agm-map {
-      height: 500px;
-    }
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]){
+  border-bottom: 1px solid rgb(250, 116, 7);
+  -webkit-box-shadow: 0 1px 0 0 rgb(250, 116, 7);
+  box-shadow: 0 1px 0 0 rgb(250, 116, 7);
+}
+ @font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(https://fonts.gstatic.com/s/materialicons/v18/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2)
+      format("woff2");
+}
 
-    .angular-maps{
-      margin: 25px;
-    }
-    body{
-      margin: 0;
-      padding: 0;
-      font-family: 'Abril Fatface', serif;
-    }
-    
-    .slider{
-      height: 100px;
-      text-align: center;
-      position: relative;
-      animation: slideColor 10s forwards infinite;
-    }
-    
-    .caption{
-      line-height: 100px;
-      font-size: 60px;
-      color: rgb(105, 61, 10);
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      text-shadow: 0px 5px 5px rgba(0,0,0,.25);
-      margin-left: -300px;
-    }
-    
-    .text-box{
-      display: inline-block;
-      position: relative;
-      color:#ff8f00;
-    }
-    
-    .text-box div{
-      display: inline-block;
-      position: absolute;
-      top: -200px;
-      transform: rotateX(-90deg);
-      opacity: 0;
-      text-shadow: 0px 5px 5px rgba(0,0,0,.25);
-      animation-timing-function: ease;
-    }
-    
-    .text-box div:nth-child(1){
-      animation: rollDown 10s forwards infinite;
-    }
-    
-    .text-box div:nth-child(2){
-      animation: rollDown2 10s forwards infinite;
-    }
-    
-    .text-box div:nth-child(3){
-      animation: rollDown3 10s forwards infinite;
-    }
-    
-    @keyframes rollDown {
-      0%{
-        top: -200px;
-        transform: rotateX(-90deg);
-      }
-      11%{
-        top: -74px;
-        transform: rotateX(0deg);
-        opacity: 1;
-      }
-      22%{
-        top: -74px;
-        transform: rotateX(0deg);
-        opacity: 1;
-      }
-      33%{
-        top: 50px;
-        transform: rotateX(30deg);
-        opacity: 0;
-      }
-    }
-    
-    @keyframes rollDown2 {
-      33%{
-        top: -200px;
-        transform: rotateX(-90deg);
-      }
-      44%{
-        top: -74px;
-        transform: rotateX(0deg);
-        opacity: 1;
-      }
-      55%{
-        top: -74px;
-        transform: rotateX(0deg);
-        opacity: 1;
-      }
-      66%{
-        top: 50px;
-        transform: rotateX(30deg);
-        opacity: 0;
-      }
-    }
-    
-    @keyframes rollDown3 {
-      66%{
-        top: -200px;
-        transform: rotateX(-90deg);
-      }
-      77%{
-        top: -74px;
-        transform: rotateX(0deg);
-        opacity: 1;
-      }
-      88%{
-        top: -74px;
-        transform: rotateX(0deg);
-        opacity: 1;
-      }
-      99%{
-        top: 50px;
-        transform: rotateX(30deg);
-        opacity: 0;
-      }
-    }
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: "liga";
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    .search{
-      width: 20%;
-      margin: 0 auto;
-    }
-  
-    
+.middle-indicator {
+  position: absolute;
+  top: 50%;
+}
+.middle-indicator-text {
+  font-size: 4.2rem;
+}
+a.middle-indicator-text {
+  color: white !important;
+}
+.content-indicator {
+  width: 64px;
+  height: 64px;
+  background: none;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+.indicators {
+  visibility: hidden;
+}
+img {
+  height: 300px;
+}
+.card .card-image img {
+  width: auto;
+  display: inline-block;
+}
+.card {
+  border: 3px solid rgb(246, 160, 0);
+  display: inline-block;
+  margin: 15px;
+  min-height: 476px;
+  text-align: center;
+}
+.row {
+  text-align: center;
+}
+
+agm-map {
+  height: 500px;
+}
+
+.angular-maps {
+  margin: 25px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Abril Fatface", serif;
+}
+
+.slider {
+  height: 100px;
+  text-align: center;
+  position: relative;
+  animation: slideColor 10s forwards infinite;
+}
+
+.caption {
+  line-height: 100px;
+  font-size: 60px;
+  color: rgb(105, 61, 10);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  margin-left: -300px;
+}
+
+.text-box {
+  display: inline-block;
+  position: relative;
+  color: #ff8f00;
+}
+
+.text-box div {
+  display: inline-block;
+  position: absolute;
+  top: -200px;
+  transform: rotateX(-90deg);
+  opacity: 0;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  animation-timing-function: ease;
+}
+
+.text-box div:nth-child(1) {
+  animation: rollDown 10s forwards infinite;
+}
+
+.text-box div:nth-child(2) {
+  animation: rollDown2 10s forwards infinite;
+}
+
+.text-box div:nth-child(3) {
+  animation: rollDown3 10s forwards infinite;
+}
+
+@keyframes rollDown {
+  0% {
+    top: -200px;
+    transform: rotateX(-90deg);
+  }
+  11% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  22% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  33% {
+    top: 50px;
+    transform: rotateX(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rollDown2 {
+  33% {
+    top: -200px;
+    transform: rotateX(-90deg);
+  }
+  44% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  55% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  66% {
+    top: 50px;
+    transform: rotateX(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rollDown3 {
+  66% {
+    top: -200px;
+    transform: rotateX(-90deg);
+  }
+  77% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  88% {
+    top: -74px;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  99% {
+    top: 50px;
+    transform: rotateX(30deg);
+    opacity: 0;
+  }
+}
+
+.search {
+  width: 20%;
+  margin: 0 auto;
+}
+label{
+  font-size: 1em;
+  color:rgb(250, 116, 7);
+}

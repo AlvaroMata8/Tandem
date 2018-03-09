@@ -1,6 +1,6 @@
 <div *ngIf="!session.getUser()" class="text-red" style="text-align:center">
   
-  <form>
+  <!-- <form>
     <h2>Signup </h2>
     <label> Username: </label>
     <input type="text" [(ngModel)]="username" name="username"/>
@@ -26,10 +26,53 @@
     <div>
       <button (click)="signup()"> Submit </button>
     </div>
-  </form>
+  </form> -->
+  <div class="valign-wrapper row signup-box ">
+      <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+        <form>
+          <div class="card-content">
+            <span class="card-title">Signup Form</span>
+            <div class="row">
+              <div class="input-field col s12">
+                <label><i class="material-icons">person</i>Username</label>
+                <input type="text" class="validate" [(ngModel)]="username" name="username"/>
+              </div>
+              <div class="input-field col s12">
+                  <label><i class="material-icons">vpn_key</i> Password </label>
+                <input type="password" class="amber-text text-darken-3" [(ngModel)]="password" name="password"/>
+              </div>
+              <div class="input-field col s12">
+                  <label><i class="material-icons">gesture</i> Name </label>
+                <input type="text" class="validate" [(ngModel)]="name" name="name"/>
+              </div>
+              <div class="input-field col s12">
+                  <label><i class="material-icons">gesture</i> Last name </label>
+                <input type="text" class="validate" [(ngModel)]="lastName" name="lastName"/>
+              </div>
+              <div class="input-field col s12">
+                  <label><i class="material-icons">image</i> Image </label>
+                <input type="text" class="validate" [(ngModel)]="userImage" name="userImage"/>
+              </div>
+              <div class="input-field col s12">
+                  <label><i class="material-icons">credit_card</i> License </label>
+                <input type="text" class="validate" [(ngModel)]="license" name="license"/>
+              </div>
+              <div class="input-field col s12">
+                  <label><i class="material-icons">location_city</i> City </label>
+                <input type="text" class="validate" [(ngModel)]="City" name="City" id="City" />
+              </div>
+            </div>
+          </div>
+          <div class="card-action center-align">
+            <button type="submit" (click)="signup()" onclick="Materialize.toast('Thans for signup!', 2000, 'green center rounded')" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">send</i> Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   <p *ngIf="error" class="error"> {{ error }} </p>
 </div>
-
+<br>
+<br>
 <div *ngIf="session.getUser()">
   <pre> {{ session.getUser() | json }} </pre>
   <button (click)="logout()"> Logout </button>

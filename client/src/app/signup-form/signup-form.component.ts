@@ -26,7 +26,6 @@ export class SignupFormComponent implements OnInit {
 
   signup(){
     this.session.signup(this.username,this.password,this.name,this.lastName,this.userImage,this.license,this.city)
-    .catch(e => this.error = e)
     .subscribe(
       (user) =>{
         this.router.navigate(["/"])

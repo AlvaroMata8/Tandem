@@ -1,8 +1,10 @@
-<div class="col-3 backbtn" style="text-align:center">
+<div class="col-3 backbtn" style="text-align:left" style="padding-left:20px">
   <a [routerLink]="['/rentList']">
     <button class="btn btn-primary amber darken-3"> back </button>
   </a>
 </div>
+
+
 <div *ngIf="!this.session.getUser()">
   <h1>For see the details you must be loged in</h1>
 </div>
@@ -10,12 +12,12 @@
 <div *ngIf="this.session.getUser()">
 
 
-  <div>
+  <!-- <div>
     <h1>{{rent.brand}} - {{rent.model}}</h1>
     <h3>Price: {{rent.price}}</h3>
 
     <img src="{{rent.img}}" alt="" width="20%">
-  </div>
+  </div> -->
 
   <div *ngIf="this.user._id !== undefined">
     <div *ngIf="this.user._id === rent.owner">
@@ -24,13 +26,37 @@
   </div>
 
 
-  <div *ngIf="this.user._id !== rent.owner">
+  <!-- <div *ngIf="this.user._id !== rent.owner">
     <button class="btn btn-primary amber darken-3" (click)="addContract(rent,rent.owner,user)">Rent it!</button>
   </div>
   <div *ngIf="this.user._id === rent.owner">
     <h1>You can't rent your own bike!</h1>
-  </div>
+  </div> -->
 
+</div>
+<div class="row">
+  <div class="col s7 push-s5">
+    <span class="flow-text">
+      <h1>{{rent.brand}} - {{rent.model}}</h1>
+      <h3>Price: {{rent.price}}</h3>
+    </span>
+  </div>
+  <div class="col s5 pull-s7">
+    <span class="flow-text">
+    </span>
+    <img src="{{rent.img}}" alt="" width="100%">
+    <div *ngIf="this.user._id !== undefined">
+        <div *ngIf="this.user._id === rent.owner">
+          <button class="btn btn-primary amber darken-3" [routerLink]="['/rent/edit', rent._id]">Edit</button>
+        </div>
+      </div>
+          <div *ngIf="this.user._id !== rent.owner">
+            <button onclick="Materialize.toast('CONGRATULATIONS,YOU'VE RENT THIS BIKE!!', 4000, 'green center rounded')" class="btn btn-primary amber darken-3" (click)="addContract(rent,rent.owner,user)">Rent it!</button>
+          </div>
+          <div *ngIf="this.user._id === rent.owner">
+              <button onclick="Materialize.toast('WRONG',function(){alert('You cant rent your own motorcycle!!')})" class="btn btn-primary red darken-3" >Rent it</button>
+          </div>
+  </div>
 </div>
 
 

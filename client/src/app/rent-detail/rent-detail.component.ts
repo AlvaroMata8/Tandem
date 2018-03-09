@@ -49,17 +49,26 @@ export class RentDetailComponent implements OnInit {
 }
 
   addContract(id1,id2,id3){
-    console.log(this.user)
-    console.log("(.)(.)")
-    console.log(this.rent)
-    console.log(this.rent)
     this.contract.addContract(id1,id2,id3)
-    .catch(e => this.error = e)
-    .subscribe( status =>{ 
-      if(status === 200) this.router.navigate(['/'])
-     
-  })
-}
+    .subscribe(
+      (ctr) =>{
+        this.router.navigate(["/profile",this.session.getUser()._id])
+        console.log("Contract created")
+      },
+     (err) => this.error = err
+   );
+  
+  }
+  errorCb(err) {
+    this.error = err;
+    this.username = null;
+  }
+
+  successCb(user) {
+    this.username = user;
+    this.error = null;
+  }
+
 
 
   getRentId(id){

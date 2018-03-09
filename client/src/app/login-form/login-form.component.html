@@ -1,18 +1,26 @@
 <div style="text-align:center" *ngIf="!session.getUser()">
-  <div>
-  <form>
-    <h2> Login </h2>
-    <label> Username </label>
-    <input type="text" [(ngModel)]="username" name="username"/>
-    <br>
-    <label> Password </label>
-    <input type="password" [(ngModel)]="password" name="password"/>
-    <div>
-      <button class="waves-effect waves-light btn amber darken-3" (click)="login()" onclick="Materialize.toast('Conected!', 2000, 'green center rounded','background-color:red')"> Login</button>
-    </div>
-  </form>
+    <div class="valign-wrapper row login-box">
+        <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+          <form>
+            <div class="card-content">
+              <span class="card-title">Enter credentials</span>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label><i class="material-icons">person</i>Username</label>
+                  <input type="text" class="validate" [(ngModel)]="username" name="username"/>
+                </div>
+                <div class="input-field col s12">
+                    <label><i class="material-icons">vpn_key</i> Password </label>
+                  <input type="password" class="validate" [(ngModel)]="password" name="password" id="password" />
+                </div>
+              </div>
+            </div>
+            <div class="card-action center-align">
+              <button type="submit" (click)="login()" onclick="Materialize.toast('Conected!', 2000, 'green center rounded')" class="waves-effect waves-light btn amber darken-3">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br>
+      <p class="shake" *ngIf="error" class="error"> {{ error }} </p>
 </div>
-  <br>
-  <p class="shake" *ngIf="error" class="error"> {{ error }} </p>
-</div>
-
