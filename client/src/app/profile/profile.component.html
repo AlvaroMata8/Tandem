@@ -1,34 +1,46 @@
-<div *ngIf="user" class="container">    
-        <div class="row">
-            <div class="panel panel-default">
-            <div class="panel-heading">  <h4 >{{user.username}} Profile</h4></div>
-             <div class="panel-body">
-            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-             <img alt="User Pic" src="{{user.userImage}}" id="profile-image1" class="img-circle img-responsive"> 
-        
-            </div>
-            <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                <div class="container" >
-                  <h2>{{user.name}}</h2>
-                  <p>a   <b> Bike Lover</b></p>
-                </div>
-                 <hr>
-                <ul class="container details" >
-                  <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>{{user.name}} {{user.lastName}}</p></li>
-                  <li><p><span class="glyphicon glyphicon-globe" style="width:50px;"></span>{{user.city}}</p></li>
-                  <li><p><span class="glyphicon glyphicon-list-alt" style="width:50px;"></span>{{user.license}}</p></li>
-                </ul>
-                <hr>
-            </div>
+<div *ngIf="user" class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4> <i class="material-icons">person</i>My profile</h4>
+      </div>
+      <div class="panel-body">
+        <div class="col s7 push-s5">
+          <img alt="User Pic" src="{{user.userImage}}" id="profile-image1" class="circle responsive-img">
+
+        </div>
+        <div class="col s5 pull-s7">
+          <div class="container">
+            <h2>{{user.name}}</h2>
+            <p>a
+              <b> Bike Lover</b>
+            </p>
+          </div>
+          <hr>
+          <ul class="container details">
+            <li>
+              <p>
+                <span class="glyphicon glyphicon-user one" style="width:50px;"></span><u><b>Name:</b> </u> {{user.name}} {{user.lastName}}</p>
+            </li>
+            <li>
+              <p>
+                <span class="glyphicon glyphicon-globe" style="width:50px;"></span><u><b>City:</b> </u>{{user.city}}</p>
+            </li>
+            <li>
+              <p>
+                <span class="glyphicon glyphicon-list-alt" style="width:50px;"></span><u><b>License:</b> </u>{{user.license}}</p>
+            </li>
+          </ul>
+          <hr>
+          <div *ngIf="session.getUser()._id === user._id">
+            <button class="waves-effect waves-accent-2 btn amber darken-3" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
+            <button class="waves-effect waves-light btn red darken-3" (click)="deleteUser()"> Delete</button>
+            <button class="waves-effect waves-accent-2 btn amber darken-3">My Rents</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div >
-            <div *ngIf="session.getUser()._id === user._id">
-                <button class="waves-effect waves-light btn amber darken-3" [routerLink]="['/user/edit', session.getUser()._id]"> Edit</button>
-                <button class="waves-effect waves-light btn red darken-3" (click)="deleteUser()"> Delete</button>
-                <button class="waves-effect waves-light btn amber darken-3">My Rents</button>
-            </div>
-        </div>
+    <div>
+    </div>
   </div>
 </div>
-

@@ -1,0 +1,35 @@
+.waves-effect.waves-brown .waves-ripple {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+     background-color: rgba(121, 85, 72, 0.65);
+   }
+   .valign-wrapper{
+     width: 100%;
+  float: left;
+   }
+   
+   .row .col.l4 {
+    width: 82.333333%;
+    /* margin-left: auto; */
+    left: auto;
+    right: auto;
+}
+.text-red{
+  color:rgb(107, 37, 4);
+}
+
+label{
+  color:rgb(90, 44, 2);
+  font-size: 20px;
+}
+
+
+.input-field input:focus + label {
+  color: rgb(250, 116, 7) !important;
+  
+}
+/* label underline focus color */
+.row .input-field input:focus {
+  border-bottom: 1px solid rgb(250, 116, 7) !important;
+  box-shadow: 0 1px 0 0 rgb(250, 116, 7) !important
+}

@@ -4,6 +4,7 @@
 
 <div *ngIf="session.getUser()" style="text-align:center">
   <div class="row">
+
     <div class="col s12 m4 l4">
       <form>
         <h1>Rent Form</h1>
@@ -60,8 +61,9 @@
         <input type="text" [(ngModel)]="rent.img" name="img">
         <br>
       </form>
-      <button class="waves-effect waves-light btn btn-primary amber darken-3" (click)="createRent(rent)">Enviar</button>
+      <button class="waves-effect waves-accent-2 btn amber darken-3" (click)="createRent(rent)">Enviar</button>
     </div>
+
     <div>
 
       <div>
@@ -79,6 +81,16 @@
             </agm-map>
           </div>
         </span>
-
       </div>
+
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s7 push-s5">
+    <span class="flow-text">This div is 7-columns wide on pushed to the right by 5-columns.</span>
+  </div>
+  <div class="col s5 pull-s7">
+    <span class="flow-text">5-columns wide pulled to the left by 7-columns.</span>
+  </div>
+</div>

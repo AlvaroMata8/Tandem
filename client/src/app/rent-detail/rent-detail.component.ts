@@ -52,7 +52,7 @@ export class RentDetailComponent implements OnInit {
     this.contract.addContract(id1,id2,id3)
     .subscribe(
       (ctr) =>{
-        this.router.navigate(["/profile",this.session.getUser()._id])
+        this.router.navigate(["/profile",this.user._id])
         console.log("Contract created")
       },
      (err) => this.error = err
@@ -61,11 +61,11 @@ export class RentDetailComponent implements OnInit {
   }
   errorCb(err) {
     this.error = err;
-    this.username = null;
+    this.user = null;
   }
 
   successCb(user) {
-    this.username = user;
+    this.user = user;
     this.error = null;
   }
 

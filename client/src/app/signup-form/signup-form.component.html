@@ -59,12 +59,12 @@
               </div>
               <div class="input-field col s12">
                   <label><i class="material-icons">location_city</i> City </label>
-                <input type="text" class="validate" [(ngModel)]="City" name="City" id="City" />
+                <input type="text" class="validate" [(ngModel)]="city" name="City" id="City" />
               </div>
             </div>
           </div>
           <div class="card-action center-align">
-            <button type="submit" (click)="signup()" onclick="Materialize.toast('Thans for signup!', 2000, 'green center rounded')" class="waves-effect waves-light btn amber darken-3"><i class="material-icons">send</i> Submit</button>
+            <button type="submit" (click)="signup()" onclick="Materialize.toast('Thans for signup!', 2000, 'green center rounded')" class="waves-effect waves-accent-2 btn amber darken-3"><i class="material-icons">send</i> Submit</button>
           </div>
         </form>
       </div>
@@ -75,7 +75,7 @@
 <br>
 <div *ngIf="session.getUser()">
   <pre> {{ session.getUser() | json }} </pre>
-  <button (click)="logout()"> Logout </button>
+  <button class="waves-effect waves-accent-2 btn amber darken-3" (click)="logout()"> Logout </button>
 </div>
 
 

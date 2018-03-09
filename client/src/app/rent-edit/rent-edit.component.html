@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-3 backbtn" style="text-align:center">
         <a [routerLink]="['/rent', rent._id]">
-          <button class="btn btn-primary"> back </button>
+          <button class="waves-effect waves-accent-2 btn amber darken-3"> back </button>
         </a>
       </div>
       <div class="col-6">
@@ -42,7 +42,7 @@
           <input type="date" #editrententrega="ngModel" [(ngModel)]="rent.entrega" name="entrega">
           <br>
           <div class="savebutton" style="text-align:center">
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="waves-effect waves-accent-2 btn amber darken-3" type="submit">Save</button>
           </div>
         </form>
         <br>
@@ -51,7 +51,7 @@
     </div>
   </div>
   <div class="deletebutton" style="text-align:center">
-    <button class="btn btn-primary" (click)="deleteRent()">Delete Rent</button>
+    <button class="waves-effect waves-accent-2 btn amber darken-3" (click)="deleteRent()">Delete Rent</button>
   </div>
   <div>
     <p *ngIf="error" class="error"> {{ error }} </p>

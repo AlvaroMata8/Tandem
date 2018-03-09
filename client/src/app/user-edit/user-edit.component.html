@@ -1,12 +1,12 @@
-<div *ngIf="user">
+<!-- <div *ngIf="user">
   <div class="row">
     <div class="col-3 backbtn" style="text-align:center">
       <a [routerLink]="['/profile', user._id]">
-        <button class="btn btn-primary"> back </button>
+        <button class="waves-effect waves-accent-2 btn amber darken-3"> back </button>
       </a>
     </div>
     <div class="col-6">
-      
+
       <form (ngSubmit)="submitForm(user._id, edituser)" #edituser="ngForm">
         <label> Name </label>
         <input type="text" #edituserName="ngModel" [(ngModel)]="user.name" name="name">
@@ -16,14 +16,68 @@
         <input type="text" #edituseruserImage="ngModel" [(ngModel)]="user.userImage" name="userImage">
         <label> City </label>
         <input type="text" #edituserusername="ngModel" [(ngModel)]="user.city" name="city">
-        <label> License </label>  
+        <label> License </label>
         <input type="text" #edituseruserlicense="ngModel" [(ngModel)]="user.license" name="license">
 
 
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="waves-effect waves-accent-2 btn amber darken-3" type="submit">Save</button>
 
       </form>
     </div>
-    <div class="col-3"></div>
   </div>
-</div>
+</div> -->
+
+<div style="text-align:center" *ngIf="user">
+  <div class="row">
+    <div class="col s7 push-s5">
+      <span class="flow-text"><div>
+          <img src="{{user.userImage}}" alt="">
+        </div></span>
+    </div>
+    <div class="col s5 pull-s7">
+      <span class="flow-text"><div class="valign-wrapper row login-box">
+          <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+            <form (ngSubmit)="submitForm(user._id, edituser)" #edituser="ngForm">
+              <div class="card-content">
+                <span class="card-title">Edit form</span>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <label class="active">
+                      <i class="material-icons">gesture</i> Name </label>
+                    <input type="text" #edituserName="ngModel" [(ngModel)]="user.name" name="name">
+                  </div>
+                  <div class="input-field col s12">
+                    <label class="active">
+                      <i class="material-icons">gesture</i> Last name </label>
+                    <input type="text" #edituserlastName="ngModel" [(ngModel)]="user.lastName" name="lastName">
+                  </div>
+                  <div class="input-field col s12">
+                    <label class="active">
+                      <i class="material-icons">image</i> Image </label>
+                    <input type="text" #edituseruserImage="ngModel" [(ngModel)]="user.userImage" name="userImage">
+                  </div>
+                  <div class="input-field col s12">
+                    <label class="active">
+                      <i class="material-icons">location_city</i> City </label>
+                    <input type="text" #edituserusername="ngModel" [(ngModel)]="user.city" name="city">
+                  </div>
+                  <div class="input-field col s12">
+                    <label class="active">
+                      <i class="material-icons">credit_card</i> License </label>
+                    <input type="text" #edituseruserlicense="ngModel" [(ngModel)]="user.license" name="license">
+                  </div>
+                </div>
+              </div>
+              <div class="card-action center-align">
+                <button class="waves-effect waves-accent-2 btn amber darken-3" onclick="Materialize.toast('Changes saved!', 2000, 'purple rounded')"
+                  type="submit">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+        <p class="shake" *ngIf="error" class="error"> {{ error }} </p>
+      </span>
+    </div>
+  </div>
+  
