@@ -22,4 +22,18 @@ router.post('/delete/:id',(req,res)=>{
     .catch(e => res.status(500).json(error));
   })
 
+  router.get("/:id", (req, res) => {
+    Contract.find({"arrendatarioId":req.params.id})
+      .then(rent => {
+        console.log(rent);
+        res.status(200).json(rent)
+      })
+      .catch(error =>
+        res.status(500).json({
+          message: `Rent with id: ${req.params.id} does not exists!`,
+          error
+        })
+      );
+  });
+
   module.exports = router;

@@ -8,8 +8,10 @@ import { RentService } from '../../services/rent.service';
 })
 export class RentListComponent implements OnInit {
   title: string = '';
-  latCity: number = 40.472371;
-  lngCity: number = -3.682040;
+  
+  latCity: number = 40.398828;
+  lngCity: number = -3.6889;
+
   latMad1:number = 40.472371;
   lngMad1:number =-3.682040;
 
@@ -38,6 +40,7 @@ export class RentListComponent implements OnInit {
 
   constructor(public rentS:RentService) {
     this.rentS.getRent().subscribe( list => this.rentList = list)
+      
    }
 
   ngOnInit() {

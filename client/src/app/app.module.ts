@@ -7,6 +7,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { AgmCoreModule } from '@agm/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CommonModule } from '@angular/common';
 
 //Componentes
 import { AppComponent } from "./app.component";
@@ -30,7 +31,6 @@ import { UserService } from "../services/user.service";
 import { SessionService } from "../services/session.service";
 import { RentService } from "../services/rent.service";
 import { ContractService } from "../services/contract.service";
-import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     MaterializeModule,
     CommonModule,
-    AgmCoreModule.forRoot({apiKey:'AIzaSyCwaebcPrjga0Ve9s_rZikQXY-Eh5vfeLo'}),
+    AgmCoreModule.forRoot({apiKey:'AIzaSyCwaebcPrjga0Ve9s_rZikQXY-Eh5vfeLo',libraries: ["places"]}),
     HttpModule,
     Ng2SearchPipeModule,
     FormsModule,

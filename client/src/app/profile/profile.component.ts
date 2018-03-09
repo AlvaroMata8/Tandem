@@ -3,6 +3,7 @@ import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { ContractService } from '../../services/contract.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,8 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
   error:string;
   user:any;
+  rent:any;
   
-  constructor( private route:ActivatedRoute,public session:SessionService, public uS:UserService,private router:Router) { 
+  constructor( private route:ActivatedRoute,public session:SessionService, public uS:UserService,private router:Router,public contract:ContractService) { 
     this.user = this.session.getUser()
     this.session.getUserEvent().subscribe(user => this.user = user)
   }
@@ -21,8 +23,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe( params => {
       this.getUserid(params['id']);
+      this.contract.getOneContract(params['id']).subscribe( a => this.rent=a)
     })
   }
+
   getUserid(id){  
     this.uS.get(id).subscribe((user) => { this.user = user;})
   }

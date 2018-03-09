@@ -1,5 +1,5 @@
-<div *ngIf="!session.getUser()">
-  <h1>For create a rent you must be registered</h1>
+<div *ngIf="!session.getUser()" style="text-align:center">
+  <h1>Ups! For create a rent you must be registered</h1>
 </div>
 
 <div *ngIf="session.getUser()" style="text-align:center">
@@ -69,7 +69,7 @@
       <div>
         <span class="flow-text">
           <div class="angular-maps">
-            <agm-map [latitude]="latCity" [longitude]="lngCity">
+            <agm-map [latitude]="latCity" [longitude]="lngCity" [zoom]="11">
               <agm-marker [latitude]="latMad1" [longitude]="lngMad1"></agm-marker>
               <agm-marker [latitude]="latMad2" [longitude]="lngMad2"></agm-marker>
               <agm-marker [latitude]="latMad3" [longitude]="lngMad3"></agm-marker>
@@ -84,13 +84,5 @@
       </div>
 
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col s7 push-s5">
-    <span class="flow-text">This div is 7-columns wide on pushed to the right by 5-columns.</span>
-  </div>
-  <div class="col s5 pull-s7">
-    <span class="flow-text">5-columns wide pulled to the left by 7-columns.</span>
   </div>
 </div>

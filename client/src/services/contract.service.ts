@@ -17,11 +17,11 @@ export class ContractService {
   //   return this.http.get(`${this.BASEURL}/api/contracts`).map(res => res.json());
   // }
 
-  // getOneContract(id) { //me traigo un solo contracto por id
-  //   return this.http
-  //     .get(`${this.BASEURL}/api/rent/${id}`)
-  //     .map(res => res.json());
-  // }
+  getOneContract(id) { //me traigo un solo contracto por id
+    return this.http
+      .get(`${this.BASEURL}/api/contract/${id}`)
+      .map(res => res.json());
+  }
 
   addContract(id1,id2,id3) { //guardar un contrato
     return this.http
